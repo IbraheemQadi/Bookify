@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import useAuth from "../../hooks/useAuth";
 
 const validationSchema = yup.object({
   username: yup.string().required("Username is required"),
@@ -20,12 +21,17 @@ const validationSchema = yup.object({
 });
 
 const Login = () => {
+  const auth = useAuth();
   const formik = useFormik({
     initialValues: {
       username: "",
       password: "",
     },
     validationSchema: validationSchema,
+    onSubmit: (values) => {
+      const { username, password } = values;
+      auth.mutate({ username, password });
+    },
   });
 
   return (
@@ -71,12 +77,17 @@ const Login = () => {
             helperText={formik.touched.password && formik.errors.password}
             {...formik.getFieldProps("password")}
           />
+          <Typography variant="body2" color="error" align="left">
+            {auth.error && "The username or password provided were incorrect!"}
+          </Typography>
           <Button
             type="submit"
             fullWidth
             variant="contained"
+            disabled={auth.isPending}
             sx={{ mt: 3, mb: 2 }}
           >
+            {auth.isPending ? "Loading..." : "Sign In"}
           </Button>
         </Box>
       </Box>
