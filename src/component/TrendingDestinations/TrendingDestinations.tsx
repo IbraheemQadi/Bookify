@@ -3,9 +3,10 @@ import trendingDestinations from "../../data/trendingDestination.json";
 import Destination from "../Destination";
 
 const TrendingDestinations = () => {
+  const isLoading = false;
   return (
     <Box>
-      <Box>
+      <Box sx={{ mb: 2 }}>
         <Typography variant="h5" component="h2">
           Trending Destinations
         </Typography>
@@ -14,21 +15,20 @@ const TrendingDestinations = () => {
         </Typography>
       </Box>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} height={"260px"}>
-          <Destination destination={trendingDestinations[0]} />
-        </Grid>
-        <Grid item xs={12} sm={6} height={"260px"}>
-          <Destination destination={trendingDestinations[1]} />
-        </Grid>
-        <Grid item xs={12} sm={4} height={"260px"}>
-          <Destination destination={trendingDestinations[2]} />
-        </Grid>
-        <Grid item xs={12} sm={4} height={"260px"}>
-          <Destination destination={trendingDestinations[3]} />
-        </Grid>
-        <Grid item xs={12} sm={4} height={"260px"}>
-          <Destination destination={trendingDestinations[4]} />
-        </Grid>
+        {trendingDestinations.map((destination, index) => {
+          if (index <= 1)
+            return (
+              <Grid item xs={12} sm={6} height={"260px"}>
+                <Destination isLoading={isLoading} destination={destination} />
+              </Grid>
+            );
+          else
+            return (
+              <Grid item xs={12} sm={4} height={"260px"}>
+                <Destination isLoading={isLoading} destination={destination} />
+              </Grid>
+            );
+        })}
       </Grid>
     </Box>
   );
