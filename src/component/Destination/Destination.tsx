@@ -1,4 +1,4 @@
-import { Typography, styled } from "@mui/material";
+import { Skeleton, Typography, styled } from "@mui/material";
 import { Destination as DestinationType } from "../../entities/Destination";
 
 const StyledCard = styled("div")({
@@ -26,10 +26,18 @@ const CityName = styled(Typography)(({ theme }) => ({
 
 interface Props {
   destination: DestinationType;
+  isLoading: boolean;
 }
 
-function Destination({ destination }: Props) {
+function Destination({ destination, isLoading }: Props) {
   const { thumbnailUrl, cityName } = destination;
+
+  if (isLoading)
+    return (
+      <StyledCard>
+        <Skeleton variant="rounded" width="100%" height="100%" />
+      </StyledCard>
+    );
 
   return (
     <StyledCard>
