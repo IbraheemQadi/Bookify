@@ -65,7 +65,7 @@ const FeaturedDeals = () => {
                 marginBlock: 1,
               }}
             >
-              <HotelCard key={index} hotel={hotel} />
+              <HotelCard key={index} hotel={hotel} variant="vertical" />
             </Box>
           ))}
         </Carousel>

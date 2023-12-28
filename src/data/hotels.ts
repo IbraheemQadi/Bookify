@@ -8,7 +8,8 @@ const hotels = [
     starRating: 3,
     originalRoomPrice: 100,
     discount: 0,
-    finalPrice: 50,
+    finalPrice: 150,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     id: 2,
@@ -19,7 +20,8 @@ const hotels = [
     starRating: 4,
     originalRoomPrice: 100,
     discount: 0,
-    finalPrice: 50,
+    finalPrice: 20,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     id: 3,
@@ -30,7 +32,8 @@ const hotels = [
     starRating: 2,
     originalRoomPrice: 100,
     discount: 0,
-    finalPrice: 50,
+    finalPrice: 330,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     id: 4,
@@ -42,6 +45,7 @@ const hotels = [
     originalRoomPrice: 100,
     discount: 0,
     finalPrice: 50,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     id: 5,
@@ -52,7 +56,8 @@ const hotels = [
     starRating: 4,
     originalRoomPrice: 100,
     discount: 0,
-    finalPrice: 50,
+    finalPrice: 510,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ];
 

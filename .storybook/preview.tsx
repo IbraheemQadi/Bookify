@@ -1,5 +1,6 @@
 import type { Preview } from "@storybook/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Container } from "@mui/material";
 import React from "react";
 
 const queryClient = new QueryClient();
@@ -17,7 +18,9 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <QueryClientProvider client={queryClient}>
-        <Story />
+        <Container maxWidth="lg">
+          <Story />
+        </Container>
       </QueryClientProvider>
     ),
   ],

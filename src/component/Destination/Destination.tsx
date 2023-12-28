@@ -12,7 +12,7 @@ const StyledCardMedia = styled("img")({
   width: "100%",
   height: "100%",
   objectFit: "cover",
-  borderRadius: "8px",
+  borderRadius: "5px",
 });
 
 const CityName = styled(Typography)(({ theme }) => ({
