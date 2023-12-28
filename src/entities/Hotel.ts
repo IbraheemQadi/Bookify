@@ -1,4 +1,5 @@
-export default interface Hotel {
+export interface Hotel {
+  id: number;
   cityName: string;
   countryName?: string;
   description?: string;
