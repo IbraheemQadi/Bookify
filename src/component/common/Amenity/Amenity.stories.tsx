@@ -21,14 +21,28 @@ export const Default = {
   args: {
     amenity: amenity,
     checked: false,
+    size: "medium",
     handleChange: () => {},
   },
 };
 
 export const Checked = {
   args: {
-    amenity: amenity,
+    ...Default.args,
     checked: true,
-    handleChange: () => {},
+  },
+};
+
+export const Medium = {
+  args: {
+    ...Default.args,
+    size: "medium",
+  },
+};
+
+export const Small = {
+  args: {
+    ...Default.args,
+    size: "small",
   },
 };
