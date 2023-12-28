@@ -24,7 +24,7 @@ const StyledBox = styled(Box)({
   position: "relative",
 });
 
-const StyledChip = styled(Chip)((theme) => ({
+const StyledChip = styled(Chip)(() => ({
   position: "absolute",
   bottom: 10,
   left: 10,

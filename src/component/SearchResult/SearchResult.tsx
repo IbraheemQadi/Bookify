@@ -1,6 +1,6 @@
 import { Stack } from "@mui/material";
 import { Hotel as HotelType } from "../../entities/Hotel";
-import Hotel from "../Hotel";
+import Hotel from "../HotelCard";
 
 interface Props {
   hotels: HotelType[];

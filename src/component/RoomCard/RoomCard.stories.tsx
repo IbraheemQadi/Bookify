@@ -1,12 +1,11 @@
-import { Meta, Story } from "@storybook/react";
+import { Meta } from "@storybook/react";
 import RoomCard from "./RoomCard";
 
 export default {
   title: "Components/RoomCard",
   component: RoomCard,
+  tags: ["autodocs"],
 } as Meta;
-
-const Template: Story = (args) => <RoomCard {...args} />;
 
 const room = {
   roomNumber: 601,
@@ -33,7 +32,8 @@ const room = {
   availability: true,
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  room,
+export const Default = {
+  args: {
+    room,
+  },
 };

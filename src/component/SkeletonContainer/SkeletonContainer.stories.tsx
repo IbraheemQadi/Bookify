@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import HotelCardSkeleton from "../Hotel/HotelCardSkeleton";
+import HotelCardSkeleton from "../HotelCardSkeleton";
 import SkeletonContainer from "./SkeletonContainer";
 
 const meta: Meta<typeof SkeletonContainer> = {

@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import HotelCardSkeleton from "./HotelCardSkeleton";
 
 const meta = {
-  title: "Components/HotelSkeleton",
+  title: "Components/HotelCardSkeleton",
   component: HotelCardSkeleton,
   tags: ["autodocs"],
   decorators: [
