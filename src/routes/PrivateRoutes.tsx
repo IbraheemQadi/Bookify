@@ -1,11 +1,11 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import useAuthStore from "../store/auth.store";
 
-interface PrivateRoutesProps {
+interface Props {
   allowedRoles?: string[];
 }
 
-const PrivateRoutes = ({ allowedRoles }: PrivateRoutesProps) => {
+const PrivateRoutes = ({ allowedRoles }: Props) => {
   const authenticatedRole = useAuthStore((state) => state.authenticatedRole);
   const location = useLocation();
 

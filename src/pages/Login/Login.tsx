@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   Container,
-  CssBaseline,
   TextField,
   Typography,
 } from "@mui/material";
@@ -36,7 +35,6 @@ const Login = () => {
 
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
       <Box
         sx={{
           marginTop: 8,
