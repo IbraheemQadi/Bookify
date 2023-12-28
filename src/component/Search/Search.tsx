@@ -1,6 +1,6 @@
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import SingleBedIcon from "@mui/icons-material/SingleBed";
-import { Stack, TextField, Typography, styled } from "@mui/material";
+import { Stack, TextField, styled } from "@mui/material";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -14,6 +14,7 @@ import {
   usePopupState,
 } from "material-ui-popup-state/hooks";
 import * as yup from "yup";
+import Controls from "../common/Controls";
 
 const StyledStack = styled(Stack)({
   backgroundColor: "#fff",
@@ -49,6 +50,7 @@ const StyledMenuItem = styled(MenuItem)({
   },
   "&.MuiMenuItem-root:hover": {
     backgroundColor: "transparent",
+    cursor: "default",
   },
 });
 
@@ -147,24 +149,24 @@ const Search = () => {
                 <Controls
                   title="Adults"
                   count={formik.values.adults}
-                  onChange={hanldeCountChange}
+                  handleChange={hanldeCountChange}
                 />
               </StyledMenuItem>
               <StyledMenuItem>
                 <Controls
                   title="Children"
                   count={formik.values.children}
-                  onChange={hanldeCountChange}
+                  handleChange={hanldeCountChange}
                 />
               </StyledMenuItem>
               <StyledMenuItem>
                 <Controls
                   title="Rooms"
                   count={formik.values.rooms}
-                  onChange={hanldeCountChange}
+                  handleChange={hanldeCountChange}
                 />
               </StyledMenuItem>
-              <MenuItem>
+              <StyledMenuItem>
                 <Button
                   onClick={popupState.close}
                   fullWidth
@@ -173,7 +175,7 @@ const Search = () => {
                 >
                   Done
                 </Button>
-              </MenuItem>
+              </StyledMenuItem>
             </Menu>
           </StyledStack>
           <Button type="submit" variant="contained" sx={{ mt: 2 }}>
@@ -186,33 +188,3 @@ const Search = () => {
 };
 
 export default Search;
-
-interface ControlsProps {
-  title: string;
-  count: number;
-  onChange: (name: string, count: number) => void;
-}
-
-const Controls = ({ title, count, onChange }: ControlsProps) => {
-  return (
-    <>
-      <Typography variant="h6">{title}</Typography>
-      <StyledStack
-        sx={{
-          border: "1px gray solid ",
-          ml: 4,
-        }}
-      >
-        <Button onClick={() => onChange(title.toLowerCase(), count - 1)}>
-          -
-        </Button>
-        <Typography variant="h6" marginInline={1}>
-          {count}
-        </Typography>
-        <Button onClick={() => onChange(title.toLowerCase(), count + 1)}>
-          +
-        </Button>
-      </StyledStack>
-    </>
-  );
-};
