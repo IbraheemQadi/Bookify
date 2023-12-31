@@ -11,6 +11,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const hotel = {
+  id: 1,
   hotelName: "The Majestic and Wonderful Bahamas",
   cityName: "Varadero",
   starRating: 4,
