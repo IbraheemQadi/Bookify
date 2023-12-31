@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import HotelCard from "../Hotel/HotelCard";
-import HotelCardSkeleton from "../Hotel/HotelCardSkeleton";
+import HotelCard from "../HotelCard/HotelCard";
+import HotelCardSkeleton from "../HotelCardSkeleton";
 import SkeletonContainer from "../SkeletonContainer";
 import data from "../../data/hotels";
 

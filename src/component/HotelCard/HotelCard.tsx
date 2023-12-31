@@ -10,10 +10,10 @@ import {
   styled,
 } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
-import Hotel from "../../entities/Hotel";
+import { Hotel as HotelType } from "../../entities/Hotel";
 
 interface Prop {
-  hotel: Hotel;
+  hotel: HotelType;
   variant: "horizontal" | "vertical";
 }
 

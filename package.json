@@ -22,6 +22,7 @@
     "axios": "^1.6.2",
     "dayjs": "^1.11.10",
     "formik": "^2.4.5",
+    "lightgallery": "^2.7.2",
     "material-ui-popup-state": "^5.0.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

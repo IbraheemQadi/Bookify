@@ -1,9 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import SkeletonContainer from "../SkeletonContainer";
-import HotelCardSkeleton from "../Hotel/HotelCardSkeleton";
+import HotelCardSkeleton from "../HotelCardSkeleton";
 import Carousel from "react-multi-carousel";
 import data from "../../data/hotels";
-import HotelCard from "../Hotel/HotelCard";
+import HotelCard from "../HotelCard/HotelCard";
 
 const responsive = {
   desktop: {

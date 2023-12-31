@@ -1,7 +1,5 @@
 import { Meta } from "@storybook/react";
 import Amenity from "./Amenity";
-import SignalWifi0BarIcon from "@mui/icons-material/SignalWifi0Bar";
-import SignalWifiStatusbar4BarIcon from "@mui/icons-material/SignalWifiStatusbar4Bar";
 
 export default {
   title: "Components/Amenity",
@@ -13,22 +11,34 @@ const amenity = {
   name: "Free Wi-Fi",
   description:
     "Stay connected with complimentary high-speed Wi-Fi available in all rooms.",
-  icon: <SignalWifi0BarIcon />,
-  checkedIcon: <SignalWifiStatusbar4BarIcon />,
 };
 
 export const Default = {
   args: {
     amenity: amenity,
     checked: false,
+    size: "medium",
     handleChange: () => {},
   },
 };
 
 export const Checked = {
   args: {
-    amenity: amenity,
+    ...Default.args,
     checked: true,
-    handleChange: () => {},
+  },
+};
+
+export const Medium = {
+  args: {
+    ...Default.args,
+    size: "medium",
+  },
+};
+
+export const Small = {
+  args: {
+    ...Default.args,
+    size: "small",
   },
 };

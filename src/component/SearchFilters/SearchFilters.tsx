@@ -11,6 +11,29 @@ const StyledStack = styled(Stack)({
   padding: "8px 15px",
 });
 
+const marks = [
+  {
+    value: 1,
+    label: "1⭐",
+  },
+  {
+    value: 2,
+    label: "2⭐",
+  },
+  {
+    value: 3,
+    label: "3⭐",
+  },
+  {
+    value: 4,
+    label: "4⭐",
+  },
+  {
+    value: 5,
+    label: "5⭐",
+  },
+];
+
 const SearchFilters = () => {
   const formik = useFormik({
     initialValues: {
@@ -73,7 +96,7 @@ const SearchFilters = () => {
           <Slider
             aria-label="star rating"
             defaultValue={3}
-            marks
+            marks={marks}
             max={5}
             min={1}
             name="starRating"
@@ -88,16 +111,17 @@ const SearchFilters = () => {
           <Typography mb={1} variant="h6">
             Amenities:
           </Typography>
-          <Box>
+          <Stack direction={"row"} gap={.5} flexWrap="wrap">
             {amenities.map((amenity) => (
               <Amenity
                 key={amenity.name}
                 amenity={amenity}
                 checked={formik.values.amenities.includes(amenity.name)}
                 handleChange={handleAmenityChange(amenity.name)}
+                size="medium"
               />
             ))}
-          </Box>
+          </Stack>
         </StyledStack>
       </Stack>
     </form>

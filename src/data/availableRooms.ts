@@ -1,4 +1,6 @@
-export const availableRooms = [
+import { Room } from "../entities/Room";
+
+export const availableRooms: Room[] = [
   {
     roomNumber: 101,
     roomPhotoUrl:
