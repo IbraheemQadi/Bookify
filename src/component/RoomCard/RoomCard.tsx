@@ -37,7 +37,7 @@ const StyledChip = styled(Chip)(() => ({
 
 const RoomCard = ({ room }: Props) => {
   return (
-    <Card sx={{ borderRadius: "8px", width: "410px" }} variant="outlined">
+    <Card sx={{ borderRadius: "8px" }} variant="outlined">
       <StyledBox>
         <CardMedia component="img" height="150" image={room.roomPhotoUrl} />
         <StyledChip
