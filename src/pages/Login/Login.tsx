@@ -8,8 +8,11 @@ import {
   Typography,
 } from "@mui/material";
 import { useFormik } from "formik";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import useAuth from "../../hooks/useAuth";
+import useAuthStore from "../../store/auth.store";
 
 const validationSchema = yup.object({
   username: yup.string().required("Username is required"),
@@ -20,6 +23,7 @@ const validationSchema = yup.object({
 });
 
 const Login = () => {
+  const authenticatedRole = useAuthStore((state) => state.authenticatedRole);
   const auth = useAuth();
   const formik = useFormik({
     initialValues: {
@@ -32,6 +36,13 @@ const Login = () => {
       auth.mutate({ username, password });
     },
   });
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    authenticatedRole === "admin"
+      ? navigate("/admin")
+      : authenticatedRole === "user" && navigate("/");
+  }, [authenticatedRole, navigate]);
 
   return (
     <Container component="main" maxWidth="xs">

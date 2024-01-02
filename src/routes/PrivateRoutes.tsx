@@ -1,13 +1,23 @@
+import Cookies from "js-cookie";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
+import APIClient from "../services/apiClient";
 import useAuthStore from "../store/auth.store";
-
 interface Props {
   allowedRoles?: string[];
 }
 
 const PrivateRoutes = ({ allowedRoles }: Props) => {
-  const authenticatedRole = useAuthStore((state) => state.authenticatedRole);
+  const { authenticatedRole, user, signout } = useAuthStore();
   const location = useLocation();
+
+  const currentTime = Date.now() / 1000;
+  if (currentTime > (user?.exp || 0)) {
+    signout();
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  const token = Cookies.get("jwt");
+  if (token) APIClient.setAuthorizationHeader(token);
 
   return allowedRoles?.includes(authenticatedRole) ? (
     <Outlet />
