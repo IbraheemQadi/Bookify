@@ -1,10 +1,13 @@
 import { useMutation } from "@tanstack/react-query";
+import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import authService, {
-  AuthRequest,
-  AuthResponse,
-} from "../services/authService";
+import { AuthRequest, AuthResponse } from "../entities/Auth";
+import APIClient from "../services/apiClient";
 import useAuthStore from "../store/auth.store";
+
+const authService = new APIClient<AuthRequest, AuthResponse>(
+  "/auth/authenticate"
+);
 
 const useAuth = () => {
   const { signin, signout } = useAuthStore();
@@ -13,12 +16,13 @@ const useAuth = () => {
   return useMutation<AuthResponse, Error, AuthRequest>({
     mutationFn: authService.post,
     onSuccess: (data: AuthResponse) => {
-      signin(data.userType);
-      if (data.userType.toLowerCase() === "admin") {
-        navigate("/admin");
-      } else if (data.userType.toLowerCase() === "user") {
-        navigate("/user");
-      }
+      Cookies.set("jwt", data.authentication, { secure: true });
+
+      const userType = data.userType.toLowerCase();
+      signin(userType);
+      userType === "admin"
+        ? navigate("/admin")
+        : userType === "user" && navigate("/");
     },
     onError: () => {
       signout();
