@@ -1,15 +1,14 @@
-import { Box, Divider, Skeleton, Stack, Typography } from "@mui/material";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
-import { hotelInfo } from "../../data/hotelInformation";
+import { Box, Divider, Skeleton, Stack, Typography } from "@mui/material";
+import { Hotel } from "../../entities/Hotel";
 import Amenity from "../common/Amenity";
 
 interface Props {
-  hotel: any;
+  hotel: Hotel;
 }
 
 function HotelInformation({ hotel }: Props) {
-  hotel = hotelInfo;
   return (
     <Stack gap={4}>
       <Box>
@@ -50,12 +49,12 @@ function HotelInformation({ hotel }: Props) {
             alignItems="center"
             spacing={2}
           >
-            {hotel.amenities.map((hotel) => (
+            {hotel.amenities?.map((amenity) => (
               <Amenity
                 checked={true}
                 size="medium"
-                key={hotel}
-                amenity={hotel}
+                key={amenity.description}
+                amenity={amenity}
               />
             ))}
           </Stack>
