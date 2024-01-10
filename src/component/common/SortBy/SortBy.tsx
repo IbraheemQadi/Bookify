@@ -5,25 +5,32 @@ import {
   InputAdornment,
   MenuItem,
   Select,
+  SelectChangeEvent,
+  Typography,
 } from "@mui/material";
-import React from "react";
+import useSearchStore from "../../../store/search.store";
+
+interface Option {
+  label: string;
+  value: string;
+}
 
 type Props = {
-  options: string[];
-  selectedSortBy: string;
-  onSortByChange: (sortBy: string) => void;
+  options: Option[];
 };
 
-const SortBy = ({ options, selectedSortBy, onSortByChange }: Props) => {
-  const handleSortByChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    onSortByChange(event.target.value as string);
+const SortBy = ({ options }: Props) => {
+  const { sort, setSort } = useSearchStore();
+
+  const handleSortByChange = (event: SelectChangeEvent<{ value: string }>) => {
+    setSort(event.target.value as string);
   };
 
   return (
     <FormControl>
       <Select
         name="sort-by"
-        value={selectedSortBy}
+        value={sort}
         onChange={handleSortByChange}
         disableUnderline
         input={
@@ -31,6 +38,7 @@ const SortBy = ({ options, selectedSortBy, onSortByChange }: Props) => {
             startAdornment={
               <InputAdornment position="start">
                 <SortIcon />
+                <Typography sx={{ ml: 1 }}>Sort by</Typography>
               </InputAdornment>
             }
             sx={{
@@ -42,8 +50,8 @@ const SortBy = ({ options, selectedSortBy, onSortByChange }: Props) => {
         }
       >
         {options.map((option) => (
-          <MenuItem key={option} value={option}>
-            {option}
+          <MenuItem key={option.value} value={option.value}>
+            {option.label}
           </MenuItem>
         ))}
       </Select>
