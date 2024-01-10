@@ -1,7 +1,7 @@
 import { Box, Slider, Stack, Typography, styled } from "@mui/material";
-import { useFormik } from "formik";
-import { amenities } from "../../data/amenities";
+import { amenities as shownAmenities } from "../../data/amenities";
 import Amenity from "../common/Amenity";
+import useSearchStore from "../../store/search.store";
 
 const StyledStack = styled(Stack)({
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -35,30 +35,26 @@ const marks = [
 ];
 
 const SearchFilters = () => {
-  const formik = useFormik({
-    initialValues: {
-      priceRange: [30, 500],
-      starRating: 3,
-      amenities: [] as string[],
-    },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
+  const priceRange = useSearchStore((state) => state.priceRange);
+  const setPriceRange = useSearchStore((state) => state.setPriceRange);
+  const starRating = useSearchStore((state) => state.starRating);
+  const setStarRating = useSearchStore((state) => state.setStarRating);
+  const amenities = useSearchStore((state) => state.amenities);
+  const setAmenities = useSearchStore((state) => state.setAmenities);
+
+  const handlePriceRangeChange = (event: Event, newValue: number[]) => {
+    setPriceRange(newValue as [number, number]);
+  };
+
+  const handleStarRatingChange = (event) => {
+    setStarRating(event.target.value);
+  };
 
   const handleAmenityChange =
     (amenityName: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      if (event.target.checked) {
-        formik.setFieldValue("amenities", [
-          ...formik.values.amenities,
-          amenityName,
-        ]);
-      } else {
-        formik.setFieldValue(
-          "amenities",
-          formik.values.amenities.filter((name) => name !== amenityName)
-        );
-      }
+      event.target.checked
+        ? setAmenities([...amenities, amenityName])
+        : setAmenities(amenities.filter((amenity) => amenity !== amenityName));
     };
 
   return (
@@ -76,15 +72,15 @@ const SearchFilters = () => {
             Budget per night:
           </Typography>
           <Typography variant="subtitle2">
-            US${formik.values.priceRange[0]} - US${formik.values.priceRange[1]}+
+            US${priceRange[0]} - US${priceRange[1]}+
           </Typography>
           <Slider
             aria-label="price range"
-            max={500}
-            min={30}
+            min={priceRange[0]}
+            max={priceRange[1]}
             name="priceRange"
-            onChange={formik.handleChange}
-            value={formik.values.priceRange}
+            onChange={handlePriceRangeChange}
+            value={priceRange}
             valueLabelDisplay="off"
             size="medium"
           />
@@ -95,28 +91,26 @@ const SearchFilters = () => {
           </Typography>
           <Slider
             aria-label="star rating"
-            defaultValue={3}
             marks={marks}
             max={5}
             min={1}
             name="starRating"
-            onChange={formik.handleChange}
+            onChange={handleStarRatingChange}
             step={1}
             size="medium"
-            value={formik.values.starRating}
-            valueLabelDisplay="on"
+            value={starRating}
           />
         </StyledStack>
         <StyledStack>
           <Typography mb={1} variant="h6">
             Amenities:
           </Typography>
-          <Stack direction={"row"} gap={.5} flexWrap="wrap">
-            {amenities.map((amenity) => (
+          <Stack direction={"row"} gap={0.5} flexWrap="wrap">
+            {shownAmenities.map((amenity) => (
               <Amenity
                 key={amenity.name}
                 amenity={amenity}
-                checked={formik.values.amenities.includes(amenity.name)}
+                checked={amenities.includes(amenity.name)}
                 handleChange={handleAmenityChange(amenity.name)}
                 size="medium"
               />

@@ -26,6 +26,7 @@
     "jwt-decode": "^4.0.0",
     "lightgallery": "^2.7.2",
     "material-ui-popup-state": "^5.0.10",
+    "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-multi-carousel": "^2.8.4",
