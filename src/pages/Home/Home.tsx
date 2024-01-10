@@ -1,12 +1,22 @@
-import useRecentlyHotels from "../../hooks/useRecentlyHotels";
-import useTrending from "../../hooks/useTrending";
+import { Box, Stack } from "@mui/material";
+import FeaturedDeals from "../../component/FeaturedDeals";
+import RecentlyHotels from "../../component/RecentlyHotels";
+import Search from "../../component/Search";
+import TrendingDestinations from "../../component/TrendingDestinations";
 
 function Home() {
-  const { data: hotels } = useRecentlyHotels(1);
-  console.log("🚀 ~ file: App.tsx:7 ~ App ~ hotels:", hotels);
-  const { data: trending } = useTrending();
-  console.log("🚀 ~ file: Home.tsx:8 ~ Home ~ trending:", trending);
-  return <div>Home Page</div>;
+  return (
+    <>
+      <Box sx={{ transform: "translateY(-110px)", position: "absolute" }}>
+        <Search />
+      </Box>
+      <Stack gap={4}>
+        <TrendingDestinations />
+        <RecentlyHotels />
+        <FeaturedDeals />
+      </Stack>
+    </>
+  );
 }
 
 export default Home;
