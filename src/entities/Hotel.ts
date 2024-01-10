@@ -1,5 +1,8 @@
+import { Amenity } from "./Amenity";
+
 export interface Hotel {
   id: number;
+  hotelId?: number;
   cityName: string;
   countryName?: string;
   description?: string;
@@ -9,6 +12,10 @@ export interface Hotel {
   hotelName: string;
   originalRoomPrice: number;
   starRating?: number;
-  thumbnailUrl: string;
+  thumbnailUrl?: string;
+  roomPhotoUrl?: string;
   visitDate?: string;
+  location?: string;
+  amenities?: Amenity[];
+  roomPrice?: number;
 }
