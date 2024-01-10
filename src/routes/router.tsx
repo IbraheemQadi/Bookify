@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import HotelDetailPage from "../pages/HotelDetailPage";
 import Layout from "../pages/Layout";
 import Login from "../pages/Login";
+import SearchPage from "../pages/SearchPage";
 import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
@@ -28,9 +29,9 @@ const router = createBrowserRouter([
         element: <Layout />,
         children: [
           { index: true, element: <Home /> },
-          { path: "/search", element: <div>Search page</div> },
+          { path: "/search", element: <SearchPage /> },
           { path: "/hotel/:id", element: <HotelDetailPage /> },
-          { path: "/checkout", element: <div>Checkout page</div> },
+          // { path: "/checkout", element: <Checkout /> },
         ],
       },
     ],
