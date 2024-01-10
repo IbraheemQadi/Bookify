@@ -13,6 +13,8 @@ import {
   bindTrigger,
   usePopupState,
 } from "material-ui-popup-state/hooks";
+import queryString from "query-string";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import Controls from "../common/Controls";
 
@@ -60,9 +62,9 @@ StyledMenuItem.defaultProps = {
 
 const Search = () => {
   const popupState = usePopupState({ variant: "popover", popupId: "controls" });
+  const navigate = useNavigate();
 
   const validationSchema = yup.object({
-    cityName: yup.string().required("City name is required"),
     checkIn: yup.date().required("Check-in date is required"),
     checkOut: yup.date().required("Check-out date is required"),
     adults: yup.number().required("Adults is required"),
@@ -81,8 +83,20 @@ const Search = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log(values.checkIn.format("YYYY-MM-DD"));
-      console.log(values);
+      const { cityName, checkIn, checkOut, adults, children, rooms } = values;
+      const checkInDate = checkIn.format("YYYY-MM-DD");
+      const checkOutDate = checkOut.format("YYYY-MM-DD");
+
+      const queryParams = queryString.stringify({
+        city: cityName,
+        checkInDate,
+        checkOutDate,
+        adults,
+        children,
+        numberOfRooms: rooms,
+      });
+
+      navigate(`/search?${queryParams}`);
     },
   });
 
