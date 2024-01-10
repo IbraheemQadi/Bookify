@@ -7,7 +7,7 @@ const meta = {
   tags: ["autodocs"],
   decorators: [
     (Story) => (
-      <div style={{ maxWidth: 260 }}>
+      <div>
         <Story />
       </div>
     ),
@@ -18,5 +18,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {},
+  args: { variant: "horizontal" },
 };
+
+// style={{ maxWidth: 260 }}

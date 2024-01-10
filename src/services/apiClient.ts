@@ -15,8 +15,8 @@ class APIClient<T, U = undefined> {
     axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   };
 
-  getAll = () => {
-    return axiosInstance.get<T[]>(this.endpoint).then((res) => res.data);
+  get = () => {
+    return axiosInstance.get<T>(this.endpoint).then((res) => res.data);
   };
 
   post = (data: T) => {

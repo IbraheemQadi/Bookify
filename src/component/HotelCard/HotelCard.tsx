@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import { Hotel as HotelType } from "../../entities/Hotel";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface Prop {
   hotel: HotelType;
@@ -40,14 +41,14 @@ const HotelCard = ({ hotel, variant }: Prop) => {
   );
 };
 
-const HotelCardVertical = ({ hotel }: { hotel: Hotel }) => {
+const HotelCardVertical = ({ hotel }: { hotel: HotelType }) => {
   return (
     <Card sx={{ paddingInline: "12px", pt: "12px" }}>
       <CardMedia
         sx={{ filter: "brightness(90%)", borderRadius: "5px" }}
         component="img"
         height="195"
-        image={hotel.thumbnailUrl}
+        image={hotel.thumbnailUrl || hotel.roomPhotoUrl}
       />
       <CardContent sx={{ pt: "8px", paddingInline: 0 }}>
         <Stack
@@ -87,11 +88,14 @@ const HotelCardVertical = ({ hotel }: { hotel: Hotel }) => {
   );
 };
 
-const HotelCardHorizontal = ({ hotel }: { hotel: Hotel }) => {
+const HotelCardHorizontal = ({ hotel }: { hotel: HotelType }) => {
+  const navigate = useNavigate();
+  const { search: searchParams } = useLocation();
+
   return (
     <StyledPaper square={false} variant="outlined">
       <Box sx={{ overflow: "hidden", width: "200px", height: "200px" }}>
-        <StyledImg src={hotel.thumbnailUrl} alt="" />
+        <StyledImg src={hotel.thumbnailUrl || hotel.roomPhotoUrl} alt="" />
       </Box>
       <Box flex={1} position={"relative"} pr={2}>
         <Stack
@@ -122,10 +126,17 @@ const HotelCardHorizontal = ({ hotel }: { hotel: Hotel }) => {
           bottom={0}
           mb={0.5}
         >
-          <Typography fontWeight={"bold"} variant={"h6"}>
-            {hotel.finalPrice}/night
+          <Typography color="primary" fontWeight={"bold"} variant={"h6"}>
+            {hotel.finalPrice || hotel.roomPrice}
+            <Typography component={"span"} color={"text.secondary"}>
+              /night
+            </Typography>
           </Typography>
-          <Button variant={"contained"} color={"primary"}>
+          <Button
+            onClick={() => navigate(`/hotel/${hotel.hotelId}${searchParams}`)}
+            variant={"contained"}
+            color={"primary"}
+          >
             See availability
           </Button>
         </Stack>

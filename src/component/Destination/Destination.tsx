@@ -12,6 +12,7 @@ const StyledCardMedia = styled("img")({
   width: "100%",
   height: "100%",
   objectFit: "cover",
+  objectPosition: "top",
   borderRadius: "5px",
 });
 
@@ -26,18 +27,10 @@ const CityName = styled(Typography)(({ theme }) => ({
 
 interface Props {
   destination: DestinationType;
-  isLoading: boolean;
 }
 
-function Destination({ destination, isLoading }: Props) {
+function Destination({ destination }: Props) {
   const { thumbnailUrl, cityName } = destination;
-
-  if (isLoading)
-    return (
-      <StyledCard>
-        <Skeleton variant="rounded" width="100%" height="100%" />
-      </StyledCard>
-    );
 
   return (
     <StyledCard>

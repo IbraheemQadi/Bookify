@@ -1,9 +1,11 @@
 import { Box, Grid, Typography } from "@mui/material";
-import trendingDestinations from "../../data/trendingDestination.json";
+import Skeleton from "@mui/material/Skeleton";
+import useTrending from "../../hooks/useTrending";
 import Destination from "../Destination";
 
 const TrendingDestinations = () => {
-  const isLoading = false;
+  const { data, isLoading } = useTrending();
+
   return (
     <Box>
       <Box sx={{ mb: 2 }}>
@@ -15,20 +17,24 @@ const TrendingDestinations = () => {
         </Typography>
       </Box>
       <Grid container spacing={2}>
-        {trendingDestinations.map((destination, index) => {
-          if (index <= 1)
-            return (
-              <Grid item xs={12} sm={6} height={"260px"}>
-                <Destination isLoading={isLoading} destination={destination} />
+        {isLoading
+          ? Array.from({ length: 5 }, (_, index) => (
+              <Grid item xs={12} sm={index <= 1 ? 6 : 4} height={"260px"}>
+                <Skeleton
+                  variant="rectangular"
+                  width="100%"
+                  height="100%"
+                  animation="wave"
+                />
               </Grid>
-            );
-          else
-            return (
-              <Grid item xs={12} sm={4} height={"260px"}>
-                <Destination isLoading={isLoading} destination={destination} />
-              </Grid>
-            );
-        })}
+            ))
+          : data?.map((destination, index) => {
+              return (
+                <Grid item xs={12} sm={index <= 1 ? 6 : 4} height={"260px"}>
+                  <Destination destination={destination} />
+                </Grid>
+              );
+            })}
       </Grid>
     </Box>
   );

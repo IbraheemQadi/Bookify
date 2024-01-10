@@ -2,8 +2,9 @@ import { Box, Typography } from "@mui/material";
 import SkeletonContainer from "../SkeletonContainer";
 import HotelCardSkeleton from "../HotelCardSkeleton";
 import Carousel from "react-multi-carousel";
-import data from "../../data/hotels";
+// import data from "../../data/hotels";
 import HotelCard from "../HotelCard/HotelCard";
+import useFeaturedDeals from "../../hooks/useFeaturedDeals";
 
 const responsive = {
   desktop: {
@@ -33,10 +34,10 @@ const responsive = {
 };
 
 const FeaturedDeals = () => {
-  const isLoading = false;
+  const { data, isLoading } = useFeaturedDeals();
 
   return (
-    <Box sx={{ mt: 3 }}>
+    <Box>
       <Box sx={{ ml: "8px" }}>
         <Typography variant="h5" component="h2">
           Featured Deals
@@ -64,8 +65,9 @@ const FeaturedDeals = () => {
                 mr: index !== data?.length - 1 ? 1 : 0,
                 marginBlock: 1,
               }}
+              key={hotel.id}
             >
-              <HotelCard key={index} hotel={hotel} variant="vertical" />
+              <HotelCard hotel={hotel} variant="vertical" />
             </Box>
           ))}
         </Carousel>

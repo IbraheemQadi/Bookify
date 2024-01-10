@@ -4,7 +4,9 @@ import "react-multi-carousel/lib/styles.css";
 import HotelCard from "../HotelCard/HotelCard";
 import HotelCardSkeleton from "../HotelCardSkeleton";
 import SkeletonContainer from "../SkeletonContainer";
-import data from "../../data/hotels";
+// import data from "../../data/hotels";
+import useRecentlyHotels from "../../hooks/useRecentlyHotels";
+import useAuthStore from "../../store/auth.store";
 
 const responsive = {
   desktop: {
@@ -34,10 +36,11 @@ const responsive = {
 };
 
 const RecentlyHotels = () => {
-  const isLoading = false;
+  const user = useAuthStore((state) => state.user);
+  const { data, isLoading } = useRecentlyHotels(parseInt(user?.user_id || "0"));
 
   return (
-    <Box sx={{ mt: 3 }}>
+    <Box>
       <Box sx={{ ml: "8px" }}>
         <Typography variant="h5" component="h2">
           Recently Visited Hotels
@@ -65,8 +68,9 @@ const RecentlyHotels = () => {
                 mr: index !== data?.length - 1 ? 1 : 0,
                 marginBlock: 1,
               }}
+              key={hotel.id}
             >
-              <HotelCard key={index} hotel={hotel} variant="vertical" />
+              <HotelCard hotel={hotel} variant="vertical" />
             </Box>
           ))}
         </Carousel>
