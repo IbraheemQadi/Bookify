@@ -1,14 +1,13 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /* grid-auto-rows: 200px; */
   grid-template-rows: repeat(2, 220px);
   grid-gap: 5px;
   border-radius: 10px;
   overflow: hidden;
 }
 
-.grid-span-2 {
+.grid :first-child {
   grid-column: span 2;
   grid-row: span 2;
 }
@@ -22,18 +21,16 @@
 }
 
 .image-text {
-  /* color: white; */
-  color: black;
-  padding: 10px;
+  background-color: #fff;
   border-radius: 30px;
+  color: black;
   left: 50%;
+  padding: 10px;
   position: absolute;
-  /* text-shadow: 0 0 10px black; */
-  top: 50%;
-  transform: translate(-50%, -50%);
   text-decoration: underline;
   text-wrap: nowrap;
-  background-color: #fff;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .blur::before {
