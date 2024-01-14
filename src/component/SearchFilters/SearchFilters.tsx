@@ -1,7 +1,7 @@
 import { Box, Slider, Stack, Typography, styled } from "@mui/material";
 import { amenities as shownAmenities } from "../../data/amenities";
-import Amenity from "../common/Amenity";
 import useSearchStore from "../../store/search.store";
+import Amenity from "../common/Amenity";
 
 const StyledStack = styled(Stack)({
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -11,43 +11,30 @@ const StyledStack = styled(Stack)({
   padding: "8px 15px",
 });
 
-const marks = [
-  {
-    value: 1,
-    label: "1⭐",
-  },
-  {
-    value: 2,
-    label: "2⭐",
-  },
-  {
-    value: 3,
-    label: "3⭐",
-  },
-  {
-    value: 4,
-    label: "4⭐",
-  },
-  {
-    value: 5,
-    label: "5⭐",
-  },
-];
+const marks = Array.from({ length: 5 }, (_, i) => ({
+  value: i + 1,
+  label: `${i + 1}⭐`,
+}));
 
 const SearchFilters = () => {
   const priceRange = useSearchStore((state) => state.priceRange);
   const setPriceRange = useSearchStore((state) => state.setPriceRange);
+  const priceRangeMin = useSearchStore((state) => state.priceRangeMin);
+  const priceRangeMax = useSearchStore((state) => state.priceRangeMax);
   const starRating = useSearchStore((state) => state.starRating);
   const setStarRating = useSearchStore((state) => state.setStarRating);
   const amenities = useSearchStore((state) => state.amenities);
   const setAmenities = useSearchStore((state) => state.setAmenities);
 
-  const handlePriceRangeChange = (event: Event, newValue: number[]) => {
+  const handlePriceRangeChange = (
+    _event: React.SyntheticEvent | Event,
+    newValue: number | number[]
+  ) => {
     setPriceRange(newValue as [number, number]);
   };
 
-  const handleStarRatingChange = (event) => {
-    setStarRating(event.target.value);
+  const handleStarRatingChange = (event: Event) => {
+    setStarRating(event?.target?.value);
   };
 
   const handleAmenityChange =
@@ -76,13 +63,13 @@ const SearchFilters = () => {
           </Typography>
           <Slider
             aria-label="price range"
-            min={priceRange[0]}
-            max={priceRange[1]}
             name="priceRange"
-            onChange={handlePriceRangeChange}
-            value={priceRange}
-            valueLabelDisplay="off"
             size="medium"
+            min={priceRangeMin}
+            max={priceRangeMax}
+            value={priceRange}
+            step={1}
+            onChange={handlePriceRangeChange}
           />
         </StyledStack>
         <StyledStack>

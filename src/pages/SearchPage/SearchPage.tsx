@@ -22,8 +22,8 @@ function SearchPage() {
       <Stack direction="row-reverse" mb={1}>
         <SortBy options={sortOptions} />
       </Stack>
-      <Stack direction="row" gap={2}>
-        <Box>
+      <Stack direction="row" gap={2} alignItems="start">
+        <Box position="sticky" top={25}>
           <SearchFilters />
         </Box>
         <Box flexGrow={1}>
