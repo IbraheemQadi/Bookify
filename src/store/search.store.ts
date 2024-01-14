@@ -6,18 +6,24 @@ interface SearchStore {
   priceRange: [number, number];
   starRating: number;
   amenities: string[];
+  priceRangeMin: number;
+  priceRangeMax: number;
   setSort: (sort: string) => void;
   setPriceRange: (priceRange: [number, number]) => void;
   setStarRating: (starRating: number) => void;
   setAmenities: (amenities: string[]) => void;
+  setPriceRangeMin: (priceRangeMin: number) => void;
+  setPriceRangeMax: (priceRangeMax: number) => void;
   reset: () => void;
 }
 
 const initialState = {
   sort: "",
-  priceRange: [0, 0] as [number, number],
+  priceRange: [10, 80] as [number, number],
   starRating: 0,
   amenities: [],
+  priceRangeMin: 10,
+  priceRangeMax: 80,
 };
 
 const useSearchStore = create<SearchStore>()(
@@ -27,11 +33,11 @@ const useSearchStore = create<SearchStore>()(
     setPriceRange: (priceRange) => set((state) => ({ ...state, priceRange })),
     setStarRating: (starRating) => set((state) => ({ ...state, starRating })),
     setAmenities: (amenities) => set((state) => ({ ...state, amenities })),
-    reset: () =>
-      set((state) => ({
-        ...state,
-        ...initialState,
-      })),
+    setPriceRangeMin: (priceRangeMin) =>
+      set((state) => ({ ...state, priceRangeMin })),
+    setPriceRangeMax: (priceRangeMax) =>
+      set((state) => ({ ...state, priceRangeMax })),
+    reset: () => set({ ...initialState }),
   }))
 );
 

@@ -63,7 +63,15 @@ function HotelInformation({ hotel }: Props) {
           <Typography variant="h4" component="h2" mb={3}>
             Location on Map
           </Typography>
-          <Skeleton variant="rounded" width={400} height={200} />
+          <Box>
+            <iframe
+              width={"550"}
+              height="250"
+              frameBorder="0"
+              scrolling="no"
+              src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=31.916989,35.206938+(My%20sfasdfasfd)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+            ></iframe>
+          </Box>
         </Box>
       </Stack>
 

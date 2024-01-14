@@ -1,23 +1,24 @@
-import * as React from "react";
-import { AppBar as MuiAppBar, styled } from "@mui/material";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
+import useAuthStore from "@/store/auth.store";
+import useBookingStore from "@/store/booking.store";
 import AdbIcon from "@mui/icons-material/Adb";
+import DoorbellOutlinedIcon from "@mui/icons-material/DoorbellOutlined";
+import MenuIcon from "@mui/icons-material/Menu";
+import { AppBar as MuiAppBar, styled } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Toolbar from "@mui/material/Toolbar";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
 import { Link } from "react-router-dom";
-import useAuthStore from "../../store/auth.store";
 
 const pages = [
   { label: "Home", path: "/" },
-  { label: "Search", path: "/search" },
   { label: "Checkout", path: "/checkout" },
 ];
 const settings = ["Profile", "Account", "Logout"];
@@ -37,6 +38,8 @@ const styles = {
 
 function AppBar() {
   const signout = useAuthStore((state) => state.signout);
+  const isReserved = useBookingStore((state) => state.isReserved);
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -153,11 +156,20 @@ function AppBar() {
               <Button
                 key={page.path}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "inhert", display: "block" }}
+                sx={{
+                  my: 2,
+                  color: "inhert",
+                  display: "block",
+                  position: "relative",
+                }}
+                disabled={!isReserved && page.path === "/checkout"}
               >
                 <StyledLink to={`${page.path.toLowerCase()}`}>
                   {page.label}
                 </StyledLink>
+                {page.path === "/checkout" && isReserved && (
+                  <DoorbellOutlinedIcon sx={{ position: "absolute", top: 0 }} />
+                )}
               </Button>
             ))}
           </Box>
