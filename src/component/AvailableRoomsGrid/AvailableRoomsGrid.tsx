@@ -1,19 +1,27 @@
 import { Box, Grid, Typography } from "@mui/material";
 // import { availableRooms } from "../../data/availableRooms";
-import RoomCard from "../RoomCard";
+import { useLocation, useParams } from "react-router-dom";
+import { Hotel } from "../../entities/Hotel";
 import useAvailableRooms from "../../hooks/useAvailableRooms";
+import RoomCard from "../RoomCard";
 
 interface Props {
-  hotelId: number;
-  checkInDate: string;
-  checkOutDate: string;
+  hotel: Hotel;
 }
 
-const AvailableRoomsGrid = ({ hotelId, checkInDate, checkOutDate }: Props) => {
+const AvailableRoomsGrid = ({ hotel }: Props) => {
+  const { id } = useParams();
+  const hotelId = parseInt(id || "");
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const checkInDate = queryParams.get("checkInDate");
+  const checkOutDate = queryParams.get("checkOutDate");
+
   const { data: availableRooms } = useAvailableRooms(
     hotelId,
-    checkInDate,
-    checkOutDate
+    checkInDate || "",
+    checkOutDate || ""
   );
 
   return (
@@ -24,7 +32,7 @@ const AvailableRoomsGrid = ({ hotelId, checkInDate, checkOutDate }: Props) => {
       <Grid container spacing={1}>
         {availableRooms?.map((room) => (
           <Grid item xs={12} sm={6} md={4} key={room.roomNumber}>
-            <RoomCard room={room} />
+            <RoomCard hotel={hotel} room={room} />
           </Grid>
         ))}
       </Grid>
