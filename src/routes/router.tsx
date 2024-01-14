@@ -1,10 +1,11 @@
+import CheckoutPage from "@/pages/CheckoutPage";
+import ErrorPage from "@/pages/ErrorPage";
+import Home from "@/pages/Home";
+import HotelDetailPage from "@/pages/HotelDetailPage";
+import Layout from "@/pages/Layout";
+import Login from "@/pages/Login";
+import SearchPage from "@/pages/SearchPage";
 import { createBrowserRouter } from "react-router-dom";
-import ErrorPage from "../pages/ErrorPage";
-import Home from "../pages/Home";
-import HotelDetailPage from "../pages/HotelDetailPage";
-import Layout from "../pages/Layout";
-import Login from "../pages/Login";
-import SearchPage from "../pages/SearchPage";
 import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
           { index: true, element: <Home /> },
           { path: "/search", element: <SearchPage /> },
           { path: "/hotel/:id", element: <HotelDetailPage /> },
-          // { path: "/checkout", element: <Checkout /> },
+          { path: "/checkout", element: <CheckoutPage /> },
         ],
       },
     ],
