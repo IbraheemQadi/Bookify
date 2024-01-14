@@ -18,4 +18,6 @@ export interface Hotel {
   location?: string;
   amenities?: Amenity[];
   roomPrice?: number;
+  latitude?: number;
+  longitude?: number;
 }

@@ -26,7 +26,6 @@ const StyledImg = styled("img")({
 });
 
 const StyledPaper = styled(Paper)({
-  background: "#fff",
   display: "flex",
   flexDirection: "row",
   gap: 15,
