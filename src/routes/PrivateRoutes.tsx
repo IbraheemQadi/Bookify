@@ -1,8 +1,9 @@
 import Cookies from "js-cookie";
+import { useEffect } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import APIClient from "../services/apiClient";
 import useAuthStore from "../store/auth.store";
-import { useEffect } from "react";
+import ScrollToTop from "./ScrollToTop";
 interface Props {
   allowedRoles?: string[];
 }
@@ -22,10 +23,15 @@ const PrivateRoutes = ({ allowedRoles }: Props) => {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  return allowedRoles?.includes(authenticatedRole) ? (
-    <Outlet />
-  ) : (
-    <Navigate to="/login" state={{ from: location }} replace />
+  return (
+    <>
+      <ScrollToTop />
+      {allowedRoles?.includes(authenticatedRole) ? (
+        <Outlet />
+      ) : (
+        <Navigate to="/login" state={{ from: location }} replace />
+      )}
+    </>
   );
 };
 
