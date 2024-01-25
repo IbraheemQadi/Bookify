@@ -1,7 +1,7 @@
+import { Hotel } from "@/entities/Hotel";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
-import { Box, Divider, Skeleton, Stack, Typography } from "@mui/material";
-import { Hotel } from "../../entities/Hotel";
+import { Box, Divider, Stack, Typography } from "@mui/material";
 import Amenity from "../common/Amenity";
 
 interface Props {

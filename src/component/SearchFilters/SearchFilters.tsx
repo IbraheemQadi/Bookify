@@ -1,6 +1,6 @@
 import { Box, Slider, Stack, Typography, styled } from "@mui/material";
-import { amenities as shownAmenities } from "../../data/amenities";
-import useSearchStore from "../../store/search.store";
+import { amenities as shownAmenities } from "@/data/amenities";
+import useSearchStore from "@/store/search.store";
 import Amenity from "../common/Amenity";
 
 const StyledStack = styled(Stack)({

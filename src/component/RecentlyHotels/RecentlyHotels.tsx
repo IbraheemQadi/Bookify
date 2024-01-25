@@ -4,9 +4,9 @@ import "react-multi-carousel/lib/styles.css";
 import HotelCard from "../HotelCard/HotelCard";
 import HotelCardSkeleton from "../HotelCardSkeleton";
 import SkeletonContainer from "../SkeletonContainer";
-// import data from "../../data/hotels";
-import useRecentlyHotels from "../../hooks/useRecentlyHotels";
-import useAuthStore from "../../store/auth.store";
+// import data from "@/data/hotels";
+import useRecentlyHotels from "@/hooks/useRecentlyHotels";
+import useAuthStore from "@/store/auth.store";
 
 const responsive = {
   desktop: {

@@ -10,7 +10,7 @@ import {
   styled,
 } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
-import { Hotel as HotelType } from "../../entities/Hotel";
+import { Hotel as HotelType } from "@/entities/Hotel";
 import { useLocation, useNavigate } from "react-router-dom";
 
 interface Prop {

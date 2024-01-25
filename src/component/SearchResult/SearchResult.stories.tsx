@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import hotels from "./../../data/hotels";
+import hotels from "@/data/hotels";
 import SearchResult from "./SearchResult";
 
 export default {

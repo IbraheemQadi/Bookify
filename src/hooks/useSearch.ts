@@ -1,7 +1,7 @@
+import { Hotel } from "@/entities/Hotel";
+import APIClient from "@/services/apiClient";
+import useSearchStore from "@/store/search.store";
 import { useQuery } from "@tanstack/react-query";
-import { Hotel } from "../entities/Hotel";
-import APIClient from "../services/apiClient";
-import useSearchStore from "../store/search.store";
 
 const useSearch = (searchParams: string) => {
   const sort = useSearchStore((state) => state.sort.toString());

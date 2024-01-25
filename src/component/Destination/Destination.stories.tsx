@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import Destination from "./index";
-import { Destination as DestinationType } from "../../entities/Destination";
+import { Destination as DestinationType } from "@/entities/Destination";
 
 const meta = {
   title: "Components/Destination",

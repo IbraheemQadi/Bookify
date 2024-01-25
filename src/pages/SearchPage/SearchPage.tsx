@@ -1,9 +1,9 @@
+import SearchFilters from "@/component/SearchFilters";
+import SearchResult from "@/component/SearchResult";
+import SortBy from "@/component/common/SortBy";
+import useSearchStore from "@/store/search.store";
 import { Box, Stack } from "@mui/material";
 import { useLocation } from "react-router-dom";
-import SearchFilters from "../../component/SearchFilters";
-import SearchResult from "../../component/SearchResult";
-import SortBy from "../../component/common/SortBy";
-import useSearchStore from "../../store/search.store";
 
 const sortOptions = [
   { label: "Room Price (lowest fisrt)", value: "RoomPrice" },
