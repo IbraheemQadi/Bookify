@@ -1,6 +1,6 @@
+import { Room } from "@/entities/Room";
+import APIClient from "@/services/apiClient";
 import { useQuery } from "@tanstack/react-query";
-import APIClient from "../services/apiClient";
-import { Room } from "../entities/Room";
 
 const useAvailableRooms = (
   hotelId: number,

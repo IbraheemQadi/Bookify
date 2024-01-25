@@ -1,6 +1,6 @@
+import { GalleryPhoto } from "@/entities/GalleryPhoto";
+import APIClient from "@/services/apiClient";
 import { useQuery } from "@tanstack/react-query";
-import APIClient from "../services/apiClient";
-import { GalleryPhoto } from "../entities/GalleryPhoto";
 
 const useGallery = (hotelId: number) => {
   const galleryService = new APIClient<GalleryPhoto[]>(

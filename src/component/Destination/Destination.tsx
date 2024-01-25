@@ -1,5 +1,5 @@
-import { Skeleton, Typography, styled } from "@mui/material";
-import { Destination as DestinationType } from "../../entities/Destination";
+import { Destination as DestinationType } from "@/entities/Destination";
+import { Typography, styled } from "@mui/material";
 
 const StyledCard = styled("div")({
   overflow: "hidden",

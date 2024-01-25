@@ -1,5 +1,5 @@
 import { Box, Typography, styled } from "@mui/material";
-import hero from "../../assets/hero.jpg";
+import hero from "@/assets/hero.jpg";
 
 const styles = {
   hero: {

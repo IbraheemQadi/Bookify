@@ -1,6 +1,6 @@
+import { Hotel } from "@/entities/Hotel";
+import APIClient from "@/services/apiClient";
 import { useQuery } from "@tanstack/react-query";
-import { Hotel } from "../entities/Hotel";
-import APIClient from "../services/apiClient";
 
 const useRecentlyHotels = (userId: number) => {
   const recentlyHotelsService = new APIClient<Hotel[]>(

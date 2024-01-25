@@ -12,9 +12,9 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import { useLocation } from "react-router-dom";
-import { Hotel } from "../../entities/Hotel";
-import { Room } from "../../entities/Room";
-import useBookingStore from "../../store/booking.store";
+import { Hotel } from "@/entities/Hotel";
+import { Room } from "@/entities/Room";
+import useBookingStore from "@/store/booking.store";
 import Amenity from "../common/Amenity";
 
 interface Props {

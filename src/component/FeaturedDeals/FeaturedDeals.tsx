@@ -2,9 +2,9 @@ import { Box, Typography } from "@mui/material";
 import SkeletonContainer from "../SkeletonContainer";
 import HotelCardSkeleton from "../HotelCardSkeleton";
 import Carousel from "react-multi-carousel";
-// import data from "../../data/hotels";
-import HotelCard from "../HotelCard/HotelCard";
-import useFeaturedDeals from "../../hooks/useFeaturedDeals";
+// import data from "@/data/hotels";
+import HotelCard from "../HotelCard";
+import useFeaturedDeals from "@/hooks/useFeaturedDeals";
 
 const responsive = {
   desktop: {

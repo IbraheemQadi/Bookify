@@ -1,5 +1,5 @@
+import APIClient from "@/services/apiClient";
 import { useMutation } from "@tanstack/react-query";
-import APIClient from "../services/apiClient";
 
 const paymentService = new APIClient("/bookings");
 

@@ -1,6 +1,6 @@
+import BookingCard from "@/component/BookingCard";
+import BookingDetail from "@/component/BookingDetail";
 import { Box, Stack } from "@mui/material";
-import BookingCard from "../../component/BookingCard";
-import BookingDetail from "../../component/BookingDetail";
 
 function CheckoutPage() {
   return (

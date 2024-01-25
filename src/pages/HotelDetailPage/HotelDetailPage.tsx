@@ -1,9 +1,9 @@
+import AvailableRoomsGrid from "@/component/AvailableRoomsGrid";
+import HotelGallery from "@/component/HotelGallery";
+import HotelInformation from "@/component/HotelInformation/HotelInformation";
+import useHotelInformation from "@/hooks/useHotelInformation";
 import { Divider, Stack, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
-import AvailableRoomsGrid from "../../component/AvailableRoomsGrid";
-import HotelGallery from "../../component/HotelGallery";
-import HotelInformation from "../../component/HotelInformation/HotelInformation";
-import useHotelInformation from "../../hooks/useHotelInformation";
 
 function HotelDetailPage() {
   const { id } = useParams();

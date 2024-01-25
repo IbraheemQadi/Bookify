@@ -1,7 +1,11 @@
+import { Container } from "@mui/material";
 import type { Preview } from "@storybook/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Container } from "@mui/material";
+import { initialize, mswLoader } from "msw-storybook-addon";
 import React from "react";
+import { withRouter } from "storybook-addon-react-router-v6";
+
+initialize();
 
 const queryClient = new QueryClient();
 
@@ -23,7 +27,9 @@ const preview: Preview = {
         </Container>
       </QueryClientProvider>
     ),
+    withRouter,
   ],
+  loaders: [mswLoader],
 };
 
 export default preview;

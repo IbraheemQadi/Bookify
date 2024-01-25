@@ -1,3 +1,5 @@
+import useAuth from "@/hooks/useAuth";
+import useAuthStore from "@/store/auth.store";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import {
   Avatar,
@@ -11,8 +13,6 @@ import { useFormik } from "formik";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
-import useAuth from "../../hooks/useAuth";
-import useAuthStore from "../../store/auth.store";
 
 const validationSchema = yup.object({
   username: yup.string().required("Username is required"),
@@ -22,8 +22,8 @@ const validationSchema = yup.object({
     .required("Password is required"),
 });
 
-const Login = () => {
-  const authenticatedRole = useAuthStore((state) => state.authenticatedRole);
+const LoginPage = () => {
+  const user = useAuthStore((state) => state.user);
   const auth = useAuth();
   const formik = useFormik({
     initialValues: {
@@ -39,10 +39,10 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    authenticatedRole === "admin"
+    user?.userType === "Admin"
       ? navigate("/admin")
-      : authenticatedRole === "user" && navigate("/");
-  }, [authenticatedRole, navigate]);
+      : user?.userType === "User" && navigate("/");
+  }, [user?.userType, navigate]);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -104,4 +104,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

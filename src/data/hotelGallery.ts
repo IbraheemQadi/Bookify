@@ -1,13 +1,5 @@
 export const gallery = [
   {
-    id: 5,
-    url: "https://cdne-hotel-reservation-webapi-dev-001.azureedge.net/web/Plaza%20Hotel.jpg",
-  },
-  {
-    id: 22,
-    url: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/33143786.jpg?k=4d0bca9d9795b80beb2cd9786946e043b23d1372eb633d5855d3aba6343d68d4&o=&hp=1",
-  },
-  {
     id: 23,
     url: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/33144464.jpg?k=98997407dcb7957422ca16005b3d19b574ff93b3097e8802fc1f6862eb041e2b&o=&hp=1",
   },
@@ -50,5 +42,13 @@ export const gallery = [
   {
     id: 33,
     url: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/31823255.jpg?k=38a96b3ea99c2f684d425b08d69a256fbc5e57584fb1220feacd836e2a34152c&o=&hp=1",
+  },
+  {
+    id: 22,
+    url: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/33143786.jpg?k=4d0bca9d9795b80beb2cd9786946e043b23d1372eb633d5855d3aba6343d68d4&o=&hp=1",
+  },
+  {
+    id: 5,
+    url: "https://cdne-hotel-reservation-webapi-dev-001.azureedge.net/web/Plaza%20Hotel.jpg",
   },
 ];

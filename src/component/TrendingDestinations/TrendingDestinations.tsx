@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import Skeleton from "@mui/material/Skeleton";
-import useTrending from "../../hooks/useTrending";
+import useTrending from "@/hooks/useTrending";
 import Destination from "../Destination";
 
 const TrendingDestinations = () => {

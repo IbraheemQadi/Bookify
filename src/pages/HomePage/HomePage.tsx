@@ -1,10 +1,10 @@
+import FeaturedDeals from "@/component/FeaturedDeals";
+import RecentlyHotels from "@/component/RecentlyHotels";
+import Search from "@/component/Search";
+import TrendingDestinations from "@/component/TrendingDestinations";
 import { Box, Stack } from "@mui/material";
-import FeaturedDeals from "../../component/FeaturedDeals";
-import RecentlyHotels from "../../component/RecentlyHotels";
-import Search from "../../component/Search";
-import TrendingDestinations from "../../component/TrendingDestinations";
 
-function Home() {
+function HomePage() {
   return (
     <>
       <Box sx={{ transform: "translateY(-110px)", position: "absolute" }}>
@@ -19,4 +19,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;

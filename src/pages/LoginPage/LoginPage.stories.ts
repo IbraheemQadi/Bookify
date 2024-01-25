@@ -1,9 +1,9 @@
 import { Meta } from "@storybook/react";
-import Login from "./Login";
+import LoginPage from "./LoginPage";
 
 export default {
   title: "Pages/Login",
-  component: Login,
+  component: LoginPage,
 } as Meta;
 
 export const Default = {
