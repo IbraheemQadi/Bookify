@@ -16,13 +16,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <PrivateRoutes allowedRoles={["admin"]} />,
+    element: <PrivateRoutes allowedRoles={["Admin"]} />,
     errorElement: <ErrorPage />,
     children: [{ index: true, element: <div>Admin Page</div> }],
   },
   {
     path: "/",
-    element: <PrivateRoutes allowedRoles={["user"]} />,
+    element: <PrivateRoutes allowedRoles={["User"]} />,
     errorElement: <ErrorPage />,
     children: [
       {

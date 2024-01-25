@@ -1,34 +1,23 @@
+import getDecodedJWT, { DecodedJWTUser } from "@/utils/getDecodedJWT";
 import Cookies from "js-cookie";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
-import getDecodedJWT, { DecodedJWTUser } from "../utils/getDecodedJWT";
 
 interface AuthStore {
-  authenticatedRole: string;
   user: DecodedJWTUser | null;
-  signin: (userType: string) => void;
+  signin: (jwt: string) => void;
   signout: () => void;
 }
 
 const useAuthStore = create<AuthStore>()(
   devtools((set) => ({
-    authenticatedRole: getDecodedJWT()?.userType.toLowerCase() || "",
     user: getDecodedJWT(),
-    signin: (userType: string) => {
+    signin: (jwt) => {
+      Cookies.set("jwt", jwt, { secure: true });
       set({ user: getDecodedJWT() });
-      switch (userType) {
-        case "admin":
-          set({ authenticatedRole: "admin" });
-          break;
-        case "user":
-          set({ authenticatedRole: "user" });
-          break;
-        default:
-          set({ authenticatedRole: "" });
-      }
     },
     signout: () => {
-      set({ authenticatedRole: "", user: null });
+      set({ user: null });
       Cookies.remove("jwt");
     },
   }))
