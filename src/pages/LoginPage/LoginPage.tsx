@@ -22,7 +22,7 @@ const validationSchema = yup.object({
     .required("Password is required"),
 });
 
-const Login = () => {
+const LoginPage = () => {
   const user = useAuthStore((state) => state.user);
   const auth = useAuth();
   const formik = useFormik({
@@ -104,4 +104,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;
