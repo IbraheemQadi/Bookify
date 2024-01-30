@@ -8,6 +8,8 @@ interface AdminDrawerContext {
   isOpen: boolean;
   openDrawer: (row: City | Hotel | Room) => void;
   closeDrawer: () => void;
+  isOpenForCreate: boolean;
+  openForCreate: () => void;
 }
 
 const AdminDrawerContext = createContext<AdminDrawerContext>(
@@ -21,7 +23,8 @@ interface AdminDrawerProviderProps {
 }
 
 export function AdminDrawerProvider({ children }: AdminDrawerProviderProps) {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenForCreate, setIsOpenForCreate] = useState(false);
   const [selectedRow, setSelectedRow] = useState<City | Hotel | Room | null>(
     null
   );
@@ -32,13 +35,26 @@ export function AdminDrawerProvider({ children }: AdminDrawerProviderProps) {
   };
 
   const closeDrawer = () => {
+    setIsOpenForCreate(false);
     setIsOpen(false);
     setSelectedRow(null);
   };
 
+  const openForCreate = () => {
+    setIsOpenForCreate(true);
+    openDrawer({} as City);
+  };
+
   return (
     <AdminDrawerContext.Provider
-      value={{ selectedRow, isOpen, openDrawer, closeDrawer }}
+      value={{
+        selectedRow,
+        isOpen,
+        openDrawer,
+        closeDrawer,
+        isOpenForCreate,
+        openForCreate,
+      }}
     >
       {children}
     </AdminDrawerContext.Provider>
