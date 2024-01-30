@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
-interface SearchStore {
+interface UserSearchStore {
   sort: string;
   priceRange: [number, number];
   starRating: number;
@@ -26,7 +26,7 @@ const initialState = {
   priceRangeMax: 80,
 };
 
-const useSearchStore = create<SearchStore>()(
+const useUserSearchStore = create<UserSearchStore>()(
   devtools((set) => ({
     ...initialState,
     setSort: (sort) => set((state) => ({ ...state, sort })),
@@ -41,4 +41,4 @@ const useSearchStore = create<SearchStore>()(
   }))
 );
 
-export default useSearchStore;
+export default useUserSearchStore;
