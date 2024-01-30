@@ -1,0 +1,92 @@
+[
+    {
+      "id": 53,
+      "name": "adfsafds",
+      "description": "hello ",
+      "hotelType": 0,
+      "starRating": 0,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "id": 93,
+      "name": "FTSdasfasdfasdfasdf",
+      "description": "new",
+      "hotelType": 8,
+      "starRating": 8,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "id": 21,
+      "name": "Gaza Hotel",
+      "description": "test2",
+      "hotelType": 5,
+      "starRating": 5,
+      "latitude": 9,
+      "longitude": 6
+    },
+    {
+      "id": 106,
+      "name": "GrandHotel",
+      "description": "A 5 stars hotel.",
+      "hotelType": 2,
+      "starRating": 5,
+      "latitude": 5,
+      "longitude": 6
+    },
+    {
+      "id": 99,
+      "name": "Hotel 1",
+      "description": "1",
+      "hotelType": 2,
+      "starRating": 5,
+      "latitude": 8,
+      "longitude": 12
+    },
+    {
+      "id": 100,
+      "name": "Hotel2",
+      "description": "11",
+      "hotelType": 0,
+      "starRating": 0,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "id": 76,
+      "name": "Hotelna",
+      "description": "sdds",
+      "hotelType": 0,
+      "starRating": 0,
+      "latitude": 0,
+      "longitude": 0
+    },
+    {
+      "id": 96,
+      "name": "million",
+      "description": "new",
+      "hotelType": 5,
+      "starRating": 5,
+      "latitude": 6,
+      "longitude": 7
+    },
+    {
+      "id": 75,
+      "name": "new",
+      "description": "test",
+      "hotelType": 2,
+      "starRating": 3,
+      "latitude": 3,
+      "longitude": 35
+    },
+    {
+      "id": 107,
+      "name": "new",
+      "description": "test",
+      "hotelType": 22,
+      "starRating": 5,
+      "latitude": 33,
+      "longitude": 25
+    }
+]

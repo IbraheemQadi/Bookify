@@ -1,0 +1,70 @@
+[
+    {
+        "roomNumber": "1",
+        "roomType": "Single",
+        "roomPrice": "1000",
+        "roomStatus": "Available"
+    },
+    {
+        "roomNumber": "2",
+        "roomType": "Single",
+        "roomPrice": "1000",
+        "roomStatus": "Available"
+    },
+
+    {
+        "roomNumber": "3",
+        "roomType": "Single",
+        "roomPrice": "1000",
+        "roomStatus": "Available"
+    },
+
+    {
+        "roomNumber": "4",
+        "roomType": "Single",
+        "roomPrice": "1000",
+        "roomStatus": "Available"
+    },
+
+    {
+        "roomNumber": "5",
+        "roomType": "Single",
+        "roomPrice": "1000",
+        "roomStatus": "Available"
+    },
+
+    {
+        "roomNumber": "6",
+        "roomType": "Single",
+        "roomPrice": "1000",
+        "roomStatus": "Available"
+    },
+
+    {
+        "roomNumber": "7",
+        "roomType": "Single",
+        "roomPrice": "1000",
+        "roomStatus": "Available"
+    },
+
+    {
+        "roomNumber": "8",
+        "roomType": "Single",
+        "roomPrice": "1000",
+        "roomStatus": "Available"
+    },
+
+    {
+        "roomNumber": "9",
+        "roomType": "Single",
+        "roomPrice": "1000",
+        "roomStatus": "Available"
+    },
+
+    {
+        "roomNumber": "10",
+        "roomType": "Single",
+        "roomPrice": "1000",
+        "roomStatus": "Available"
+    }
+]
