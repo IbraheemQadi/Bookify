@@ -20,7 +20,7 @@ const PrivateRoutes = ({ allowedRoles }: Props) => {
   const currentTime = Date.now() / 1000;
   if (currentTime > (user?.exp || 0)) {
     signout();
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return <Navigate to="/" state={{ from: location }} replace />;
   }
 
   return (
@@ -29,7 +29,7 @@ const PrivateRoutes = ({ allowedRoles }: Props) => {
       {allowedRoles?.includes(user?.userType ?? "") ? (
         <Outlet />
       ) : (
-        <Navigate to="/login" state={{ from: location }} replace />
+        <Navigate to="/" state={{ from: location }} replace />
       )}
     </>
   );

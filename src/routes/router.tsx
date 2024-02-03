@@ -13,7 +13,7 @@ import { Typography } from "@mui/material";
 
 const router = createBrowserRouter([
   {
-    path: "/login",
+    path: "/",
     element: <LoginPage />,
     errorElement: <ErrorPage />,
   },
@@ -39,12 +39,11 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/",
+    path: "/user",
     element: <PrivateRoutes allowedRoles={["User"]} />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/",
         element: <UserLayout />,
         children: [
           { index: true, element: <HomePage /> },

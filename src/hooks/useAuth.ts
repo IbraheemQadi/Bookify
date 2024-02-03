@@ -18,8 +18,8 @@ const useAuth = () => {
       const userType = data.userType.toLowerCase();
       signin(data.authentication);
       userType === "admin"
-        ? navigate("/admin")
-        : userType === "user" && navigate("/");
+        ? navigate("/admin/cities", { replace: true })
+        : userType === "user" && navigate("/user", { replace: true });
     },
     onError: () => {
       signout();
