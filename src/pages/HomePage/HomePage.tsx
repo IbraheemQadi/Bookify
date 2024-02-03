@@ -2,12 +2,20 @@ import FeaturedDeals from "@/component/FeaturedDeals";
 import RecentlyHotels from "@/component/RecentlyHotels";
 import Search from "@/component/Search";
 import TrendingDestinations from "@/component/TrendingDestinations";
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
 
 function HomePage() {
+  const theme = useTheme();
+  const isMeduimScreen = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <>
-      <Box sx={{ transform: "translateY(-110px)", position: "absolute" }}>
+      <Box
+        sx={{
+          transform: isMeduimScreen ? "" : "translateY(-110px)",
+          my: isMeduimScreen ? 2 : 0,
+        }}
+      >
         <Search />
       </Box>
       <Stack gap={4}>
