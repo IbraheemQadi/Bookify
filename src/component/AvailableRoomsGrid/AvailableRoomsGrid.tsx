@@ -1,8 +1,8 @@
-import { Box, Grid, Typography } from "@mui/material";
-// import { availableRooms } from "@/data/availableRooms";
-import { useLocation, useParams } from "react-router-dom";
+import { Grid, Paper } from "@mui/material";
+
 import { Hotel } from "@/entities/Hotel";
 import useAvailableRooms from "@/hooks/useAvailableRooms";
+import { useLocation, useParams } from "react-router-dom";
 import RoomCard from "../RoomCard";
 
 interface Props {
@@ -25,18 +25,15 @@ const AvailableRoomsGrid = ({ hotel }: Props) => {
   );
 
   return (
-    <Box>
-      <Typography variant="h4" component="h2" mb={3}>
-        Available Rooms
-      </Typography>
+    <Paper elevation={3} sx={{ p: 1 }}>
       <Grid container spacing={1}>
         {availableRooms?.map((room) => (
-          <Grid item xs={12} sm={6} md={4} key={room.roomNumber}>
-            <RoomCard hotel={hotel} room={room} />
+          <Grid item xs={12} sm={6} md={12} lg={6}>
+            <RoomCard key={room.roomNumber} hotel={hotel} room={room} />
           </Grid>
         ))}
       </Grid>
-    </Box>
+    </Paper>
   );
 };
 
