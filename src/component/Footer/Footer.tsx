@@ -1,16 +1,22 @@
-import { Typography, Link, Box } from "@mui/material";
+import { Typography, Link, Box, useTheme } from "@mui/material";
 
 const styles = {
   footer: {
-    backgroundColor: "#f4f4f4",
     padding: "48px",
     // marginTop: "auto",
   },
 };
 
 const Footer = () => {
+  const theme = useTheme();
+
   return (
-    <Box sx={styles.footer}>
+    <Box
+      sx={{
+        ...styles.footer,
+        backgroundColor: theme.palette.background.paper,
+      }}
+    >
       <Typography variant="body2" color="textSecondary" align="center">
         {"Made with ❤️ by "}
         <Link color="inherit" href="https://github.com/ibraheemqadi">

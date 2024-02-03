@@ -1,4 +1,12 @@
-import { Box, Slider, Stack, Typography, styled } from "@mui/material";
+import {
+  Box,
+  Slider,
+  Stack,
+  Typography,
+  styled,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { amenities as shownAmenities } from "@/data/amenities";
 import useUserSearchStore from "@/store/userSearch.store";
 import Amenity from "../common/Amenity";
@@ -25,6 +33,8 @@ const SearchFilters = () => {
   const setStarRating = useUserSearchStore((state) => state.setStarRating);
   const amenities = useUserSearchStore((state) => state.amenities);
   const setAmenities = useUserSearchStore((state) => state.setAmenities);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const handlePriceRangeChange = (
     _event: React.SyntheticEvent | Event,
@@ -47,7 +57,11 @@ const SearchFilters = () => {
   return (
     <form>
       <Stack
-        sx={{ border: "1px solid #e0e0e0", borderRadius: "5px", width: 365 }}
+        sx={{
+          border: "1px solid #e0e0e0",
+          borderRadius: "5px",
+          width: isMobile ? "100%" : "360px",
+        }}
       >
         <Box p={1}>
           <Typography fontWeight={"bold"} variant="h5">

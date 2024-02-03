@@ -96,7 +96,7 @@ const Search = () => {
         numberOfRooms: rooms,
       });
 
-      navigate(`/search?${queryParams}`);
+      navigate(`/user/search?${queryParams}`);
     },
   });
 
