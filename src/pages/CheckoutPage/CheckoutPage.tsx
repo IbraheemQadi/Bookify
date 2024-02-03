@@ -1,19 +1,27 @@
 import BookingCard from "@/component/BookingCard";
 import BookingDetail from "@/component/BookingDetail";
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
 
 function CheckoutPage() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <Stack
-      direction="row"
+      direction={isMobile ? "column-reverse" : "row"}
       justifyContent="space-between"
-      alignItems="start"
+      alignItems={isMobile ? "center" : "start"}
       gap={6}
     >
-      <Box flexGrow={1}>
+      <Box>
         <BookingDetail />
       </Box>
-      <Box position="sticky" top={80} mt={11}>
+      <Box
+        position={isMobile ? "static" : "sticky"}
+        width={isMobile ? "80%" : "fit-content"}
+        top={80}
+        mt={11}
+      >
         <BookingCard />
       </Box>
     </Stack>

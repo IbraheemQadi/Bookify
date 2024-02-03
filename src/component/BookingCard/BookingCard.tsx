@@ -1,6 +1,15 @@
 import useBookingStore from "@/store/booking.store";
 import StarIcon from "@mui/icons-material/Star";
-import { Box, Divider, Paper, Stack, Typography, styled } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Paper,
+  Stack,
+  Typography,
+  styled,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 const StyledImg = styled("img")({
   objectFit: "cover",
@@ -16,17 +25,23 @@ const StyledPaper = styled(Paper)({
   padding: "20px",
   borderRadius: "15px",
   boxShadow: "0px 6px 16px 0px rgba(0, 0, 0, 0.12)",
-  width: "480px",
-  height: "fit-content",
 });
 
 function BookingCard() {
   const { hotel, room } = useBookingStore((state) => state.booking);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <StyledPaper variant="outlined">
-      <Stack direction="row" gap={2}>
-        <Box sx={{ overflow: "hidden", width: "125px", height: "105px" }}>
+    <StyledPaper variant="outlined" sx={{ width: isMobile ? "100%" : "480px" }}>
+      <Stack direction={isMobile ? "column" : "row"} gap={2}>
+        <Box
+          sx={{
+            overflow: "hidden",
+            width: isMobile ? "100%" : "125px",
+            height: "105px",
+          }}
+        >
           <StyledImg src={room.roomPhotoUrl} alt="" />
         </Box>
         <Box flex={1} position={"relative"} pr={2}>
@@ -44,7 +59,7 @@ function BookingCard() {
             {hotel.hotelName}
           </Typography>
           <Stack
-            position="absolute"
+            position={isMobile ? "static" : "absolute"}
             bottom={0}
             direction="row"
             justifyContent="start"
