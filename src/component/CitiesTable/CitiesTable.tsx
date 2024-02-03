@@ -15,18 +15,32 @@ const sortCities = (cities: City[]) => {
   return [...cities].sort((a, b) => (a.id > b.id ? 1 : -1));
 };
 
+// const filterCities = (cities: City[], search: string) => {
+//   if (!search) return cities;
+//   return cities.filter((city) => {
+//     return city.name.toLowerCase().includes(search.toLowerCase());
+//   });
+// };
+
 function CitiesTable() {
-  const { data, isLoading } = useCities(10, 1);
-  const { openForCreate, openDrawer } = useAdminDrawer();
+  const { data, isLoading } = useCities({ pageSize: 10, pageNumber: 1 });
+  const { openDrawerForCreate, openDrawer } = useAdminDrawer();
+
+  // let filteredCities = [];
 
   const handleCityCreate = () => {
-    openForCreate();
+    openDrawerForCreate();
+  };
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // const { value } = e.target;
+    // filteredCities = filterCities(data ?? [], value);
   };
 
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <Box my={2}>
+    <Box>
       <Typography variant="h4" gutterBottom>
         Cities Table
       </Typography>
@@ -37,7 +51,7 @@ function CitiesTable() {
             label="Search"
             variant="outlined"
             fullWidth
-            onChange={(e) => console.log(e.target.value)}
+            onChange={handleSearch}
           />
           <Button
             onClick={handleCityCreate}
@@ -49,7 +63,7 @@ function CitiesTable() {
         </Stack>
       </Paper>
       <Table
-        data={sortCities(data || [])}
+        data={sortCities(data ?? [])}
         headers={["Id", "Name", "Description"]}
         onRowClick={(row) => openDrawer(row)}
       />

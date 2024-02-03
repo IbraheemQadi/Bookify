@@ -9,7 +9,7 @@ interface AdminDrawerContext {
   openDrawer: (row: City | Hotel | Room) => void;
   closeDrawer: () => void;
   isOpenForCreate: boolean;
-  openForCreate: () => void;
+  openDrawerForCreate: () => void;
 }
 
 const AdminDrawerContext = createContext<AdminDrawerContext>(
@@ -53,7 +53,7 @@ export function AdminDrawerProvider({ children }: AdminDrawerProviderProps) {
         openDrawer,
         closeDrawer,
         isOpenForCreate,
-        openForCreate,
+        openDrawerForCreate: openForCreate,
       }}
     >
       {children}

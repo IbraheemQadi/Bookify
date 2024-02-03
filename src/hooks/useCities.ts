@@ -1,16 +1,22 @@
 import { City } from "@/entities/City";
 import APIClient from "@/services/apiClient";
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
-const useCities = (pageSize: number, pageNumber: number) => {
+interface CitiesQuery {
+  pageSize: number;
+  pageNumber: number;
+}
+
+const useCities = (query: CitiesQuery) => {
   const citiesService = new APIClient<City[]>(
-    `/cities?pageSize=${pageSize}&pageNumber=${pageNumber}`
+    `/cities?pageSize=${query.pageSize}&pageNumber=${query.pageNumber}`
   );
 
   return useQuery<City[], Error>({
-    queryKey: ["cities"],
+    queryKey: ["cities", query],
     queryFn: citiesService.get,
     staleTime: 1000 * 60 * 5, // 5 minutes
+    placeholderData: keepPreviousData,
   });
 };
 

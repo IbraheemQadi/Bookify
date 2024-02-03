@@ -40,7 +40,7 @@ export default function Dashboard({ children }: { children: React.ReactNode }) {
       <Drawer open={open} handleDrawerClose={handleDrawerClose} />
       <Container maxWidth="lg" component="main">
         <DrawerHeader />
-        {children}
+        <Box my={2}>{children}</Box>
       </Container>
     </Box>
   );

@@ -1,5 +1,4 @@
-// import AdminSearch from "@/component/AdminSearch";
-import CityEditForm from "@/component/CityEditForm";
+import CityControlForm from "@/component/CityControlForm";
 import Dashboard from "@/component/Dashboard";
 import {
   AdminDrawerProvider,
@@ -23,7 +22,7 @@ function AdminLayoutBase() {
   const renderForm = () => {
     switch (pathname) {
       case "/admin/cities":
-        return <CityEditForm />;
+        return <CityControlForm />;
       case "/admin/hotels":
         return <div>Hotels Form</div>;
       default:
@@ -44,7 +43,6 @@ function AdminLayoutBase() {
         {renderForm()}
       </Drawer>
       <Dashboard>
-        {/* <AdminSearch /> */}
         <Outlet />
       </Dashboard>
     </>
