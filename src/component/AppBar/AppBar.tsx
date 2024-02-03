@@ -3,7 +3,7 @@ import useBookingStore from "@/store/booking.store";
 import AdbIcon from "@mui/icons-material/Adb";
 import DoorbellOutlinedIcon from "@mui/icons-material/DoorbellOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
-import { AppBar as MuiAppBar, styled } from "@mui/material";
+import { AppBar as MuiAppBar, styled, useTheme } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -18,19 +18,20 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 
 const pages = [
-  { label: "Home", path: "/" },
-  { label: "Checkout", path: "/checkout" },
+  { label: "Home", path: "/user" },
+  { label: "Checkout", path: "/user/checkout" },
 ];
 const settings = ["Profile", "Account", "Logout"];
 
-const StyledLink = styled(Link)`
-  color: inherit;
-  text-decoration: none;
-`;
+const StyledLink = styled(Link)({
+  color: "inherit",
+  textDecoration: "none",
+  padding: "6px 8px",
+  position: "relative",
+});
 
 const styles = {
   appbar: {
-    background: "#fff",
     color: "black",
     boxShadow: "none",
   },
@@ -39,17 +40,18 @@ const styles = {
 function AppBar() {
   const signout = useAuthStore((state) => state.signout);
   const isReserved = useBookingStore((state) => state.isReserved);
-
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
+  const theme = useTheme();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -58,17 +60,23 @@ function AppBar() {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = (e: React.MouseEventHandler) => {
+  const handleCloseUserMenu = (setting?: string) => () => {
     setAnchorElUser(null);
-    if (e.target.innerText === "Logout") {
+    if (setting === "Logout") {
       signout();
     }
   };
 
   return (
-    <MuiAppBar sx={styles.appbar} position="static">
+    <MuiAppBar
+      sx={{
+        ...styles.appbar,
+        backgroundColor: theme.palette.background.default,
+      }}
+      position="static"
+    >
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
@@ -84,9 +92,10 @@ function AppBar() {
               textDecoration: "none",
             }}
           >
-            <StyledLink to="/">LOGO</StyledLink>
+            <StyledLink to="/user">Bookify</StyledLink>
           </Typography>
 
+          {/* Mobile Navigation Menu  */}
           <Box
             sx={{
               flexGrow: 1,
@@ -122,7 +131,11 @@ function AppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.path} onClick={handleCloseNavMenu}>
+                <MenuItem
+                  key={page.path}
+                  onClick={handleCloseNavMenu}
+                  disabled={!isReserved && page.path === "/user/checkout"}
+                >
                   <Typography textAlign="center">
                     <StyledLink to={`${page.path.toLowerCase()}`}>
                       {page.label}
@@ -132,6 +145,8 @@ function AppBar() {
               ))}
             </Menu>
           </Box>
+
+          {/* User Logo */}
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
@@ -149,31 +164,38 @@ function AppBar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            <StyledLink to="/user">Bookify</StyledLink>
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+
+          {/* Desktop Navigation menu */}
+          <Box
+            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+            gap={2}
+          >
             {pages.map((page) => (
               <Button
                 key={page.path}
                 onClick={handleCloseNavMenu}
                 sx={{
-                  my: 2,
                   color: "inhert",
                   display: "block",
-                  position: "relative",
+                  p: 0,
                 }}
-                disabled={!isReserved && page.path === "/checkout"}
+                disabled={!isReserved && page.path === "/user/checkout"}
               >
                 <StyledLink to={`${page.path.toLowerCase()}`}>
                   {page.label}
+                  {page.path === "/user/checkout" && isReserved && (
+                    <DoorbellOutlinedIcon
+                      sx={{ position: "absolute", top: 0 }}
+                    />
+                  )}
                 </StyledLink>
-                {page.path === "/checkout" && isReserved && (
-                  <DoorbellOutlinedIcon sx={{ position: "absolute", top: 0 }} />
-                )}
               </Button>
             ))}
           </Box>
 
+          {/* User Menu */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -194,10 +216,10 @@ function AppBar() {
                 horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
+              onClose={handleCloseUserMenu()}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={handleCloseUserMenu(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

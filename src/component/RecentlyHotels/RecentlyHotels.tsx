@@ -68,7 +68,7 @@ const RecentlyHotels = () => {
                 mr: index !== data?.length - 1 ? 1 : 0,
                 marginBlock: 1,
               }}
-              key={hotel.id}
+              key={hotel.id + index}
             >
               <HotelCard hotel={hotel} variant="vertical" />
             </Box>
