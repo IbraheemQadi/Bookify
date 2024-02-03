@@ -2,7 +2,7 @@ import SearchFilters from "@/component/SearchFilters";
 import SearchResult from "@/component/SearchResult";
 import SortBy from "@/component/common/SortBy";
 import useUserSearchStore from "@/store/userSearch.store";
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
 import { useLocation } from "react-router-dom";
 
 const sortOptions = [
@@ -15,22 +15,25 @@ const sortOptions = [
 function SearchPage() {
   const { search: searchParams } = useLocation();
   const reset = useUserSearchStore((state) => state.reset);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   reset();
-
+  // position="sticky" top={25} ( search filters ) for Desktop view
   return (
-    <Box>
+    <Stack>
       <Stack direction="row-reverse" mb={1}>
         <SortBy options={sortOptions} />
       </Stack>
-      <Stack direction="row" gap={2} alignItems="start">
-        <Box position="sticky" top={25}>
+      {/* alignItems="start" */}
+      <Stack direction={isMobile ? "column" : "row"} gap={2}>
+        <Box>
           <SearchFilters />
         </Box>
         <Box flexGrow={1}>
           <SearchResult searchParams={searchParams} />
         </Box>
       </Stack>
-    </Box>
+    </Stack>
   );
 }
 export default SearchPage;

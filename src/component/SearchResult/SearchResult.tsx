@@ -53,6 +53,7 @@ function SearchResult({ searchParams }: Props) {
   if (filteredHotels.length === 0 && !isLoading) {
     return (
       <Stack gap={2}>
+        {/* empty search  */}
         <HotelCardSkeleton variant="horizontal" />
       </Stack>
     );

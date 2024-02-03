@@ -10,8 +10,8 @@ function UserLayout() {
   return (
     <>
       <AppBar />
-      {pathname === "/" && <Hero />}
-      <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+      {pathname === "/user" && <Hero />}
+      <Container maxWidth="lg" sx={{ mb: 4 }}>
         <Outlet />
       </Container>
       <Footer />

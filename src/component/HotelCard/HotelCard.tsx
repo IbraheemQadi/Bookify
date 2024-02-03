@@ -8,6 +8,8 @@ import {
   Stack,
   Typography,
   styled,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import { Hotel as HotelType } from "@/entities/Hotel";
@@ -90,10 +92,18 @@ const HotelCardVertical = ({ hotel }: { hotel: HotelType }) => {
 const HotelCardHorizontal = ({ hotel }: { hotel: HotelType }) => {
   const navigate = useNavigate();
   const { search: searchParams } = useLocation();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <StyledPaper square={false} variant="outlined">
-      <Box sx={{ overflow: "hidden", width: "200px", height: "200px" }}>
+      <Box
+        sx={{
+          overflow: "hidden",
+          width: isMobile ? "160px" : "200px",
+          aspectRatio: "1",
+        }}
+      >
         <StyledImg src={hotel.thumbnailUrl || hotel.roomPhotoUrl} alt="" />
       </Box>
       <Box flex={1} position={"relative"} pr={2}>
@@ -118,9 +128,9 @@ const HotelCardHorizontal = ({ hotel }: { hotel: HotelType }) => {
         </Typography>
         <Typography variant={"body1"}>{hotel.description}</Typography>
         <Stack
-          direction={"row"}
-          justifyContent={"space-between"}
-          position={"absolute"}
+          direction={isMobile ? "column" : "row"}
+          justifyContent="space-between"
+          position={isMobile ? "static" : "absolute"}
           width={"100%"}
           bottom={0}
           mb={0.5}
@@ -132,9 +142,11 @@ const HotelCardHorizontal = ({ hotel }: { hotel: HotelType }) => {
             </Typography>
           </Typography>
           <Button
-            onClick={() => navigate(`/hotel/${hotel.hotelId}${searchParams}`)}
-            variant={"contained"}
-            color={"primary"}
+            onClick={() =>
+              navigate(`/user/hotel/${hotel.hotelId}${searchParams}`)
+            }
+            variant="contained"
+            color="primary"
           >
             See availability
           </Button>
