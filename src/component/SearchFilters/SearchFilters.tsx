@@ -1,6 +1,6 @@
 import { Box, Slider, Stack, Typography, styled } from "@mui/material";
 import { amenities as shownAmenities } from "@/data/amenities";
-import useSearchStore from "@/store/search.store";
+import useUserSearchStore from "@/store/userSearch.store";
 import Amenity from "../common/Amenity";
 
 const StyledStack = styled(Stack)({
@@ -17,14 +17,14 @@ const marks = Array.from({ length: 5 }, (_, i) => ({
 }));
 
 const SearchFilters = () => {
-  const priceRange = useSearchStore((state) => state.priceRange);
-  const setPriceRange = useSearchStore((state) => state.setPriceRange);
-  const priceRangeMin = useSearchStore((state) => state.priceRangeMin);
-  const priceRangeMax = useSearchStore((state) => state.priceRangeMax);
-  const starRating = useSearchStore((state) => state.starRating);
-  const setStarRating = useSearchStore((state) => state.setStarRating);
-  const amenities = useSearchStore((state) => state.amenities);
-  const setAmenities = useSearchStore((state) => state.setAmenities);
+  const priceRange = useUserSearchStore((state) => state.priceRange);
+  const setPriceRange = useUserSearchStore((state) => state.setPriceRange);
+  const priceRangeMin = useUserSearchStore((state) => state.priceRangeMin);
+  const priceRangeMax = useUserSearchStore((state) => state.priceRangeMax);
+  const starRating = useUserSearchStore((state) => state.starRating);
+  const setStarRating = useUserSearchStore((state) => state.setStarRating);
+  const amenities = useUserSearchStore((state) => state.amenities);
+  const setAmenities = useUserSearchStore((state) => state.setAmenities);
 
   const handlePriceRangeChange = (
     _event: React.SyntheticEvent | Event,

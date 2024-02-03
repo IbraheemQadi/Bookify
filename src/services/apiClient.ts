@@ -22,6 +22,14 @@ class APIClient<T, U = undefined> {
   post = (data: T) => {
     return axiosInstance.post<U>(this.endpoint, data).then((res) => res.data);
   };
+
+  put = (data: T) => {
+    return axiosInstance.put<U>(this.endpoint, data).then((res) => res.data);
+  };  
+
+  delete = () => {
+    return axiosInstance.delete<U>(this.endpoint).then((res) => res.data);
+  };
 }
 
 export default APIClient;

@@ -1,5 +1,5 @@
 import useSearch from "@/hooks/useSearch";
-import useSearchStore from "@/store/search.store";
+import useUserSearchStore from "@/store/userSearch.store";
 import getFilteredHotels from "@/utils/getFilteredHotels";
 import { Stack } from "@mui/material";
 import { useEffect } from "react";
@@ -12,12 +12,16 @@ interface Props {
 
 function SearchResult({ searchParams }: Props) {
   const { data: hotels, isLoading } = useSearch(searchParams);
-  const starRating = useSearchStore((state) => state.starRating);
-  const amenities = useSearchStore((state) => state.amenities);
-  const priceRange = useSearchStore((state) => state.priceRange);
-  const setPriceRange = useSearchStore((state) => state.setPriceRange);
-  const setPriceRangeMin = useSearchStore((state) => state.setPriceRangeMin);
-  const setPriceRangeMax = useSearchStore((state) => state.setPriceRangeMax);
+  const starRating = useUserSearchStore((state) => state.starRating);
+  const amenities = useUserSearchStore((state) => state.amenities);
+  const priceRange = useUserSearchStore((state) => state.priceRange);
+  const setPriceRange = useUserSearchStore((state) => state.setPriceRange);
+  const setPriceRangeMin = useUserSearchStore(
+    (state) => state.setPriceRangeMin
+  );
+  const setPriceRangeMax = useUserSearchStore(
+    (state) => state.setPriceRangeMax
+  );
 
   const filteredHotels = getFilteredHotels(
     hotels || [],

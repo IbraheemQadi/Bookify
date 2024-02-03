@@ -8,7 +8,7 @@ import {
   SelectChangeEvent,
   Typography,
 } from "@mui/material";
-import useSearchStore from "@/store/search.store";
+import useUserSearchStore from "@/store/userSearch.store";
 
 interface Option {
   label: string;
@@ -20,7 +20,7 @@ type Props = {
 };
 
 const SortBy = ({ options }: Props) => {
-  const { sort, setSort } = useSearchStore();
+  const { sort, setSort } = useUserSearchStore();
 
   const handleSortByChange = (event: SelectChangeEvent<{ value: string }>) => {
     setSort(event.target.value as string);

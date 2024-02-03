@@ -4,7 +4,7 @@ import Hero from "@/component/Hero";
 import { Container } from "@mui/material";
 import { Outlet, useLocation } from "react-router-dom";
 
-function Layout() {
+function UserLayout() {
   const { pathname } = useLocation();
 
   return (
@@ -19,4 +19,4 @@ function Layout() {
   );
 }
 
-export default Layout;
+export default UserLayout;

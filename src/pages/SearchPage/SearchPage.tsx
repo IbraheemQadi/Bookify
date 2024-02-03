@@ -1,7 +1,7 @@
 import SearchFilters from "@/component/SearchFilters";
 import SearchResult from "@/component/SearchResult";
 import SortBy from "@/component/common/SortBy";
-import useSearchStore from "@/store/search.store";
+import useUserSearchStore from "@/store/userSearch.store";
 import { Box, Stack } from "@mui/material";
 import { useLocation } from "react-router-dom";
 
@@ -14,7 +14,7 @@ const sortOptions = [
 
 function SearchPage() {
   const { search: searchParams } = useLocation();
-  const reset = useSearchStore((state) => state.reset);
+  const reset = useUserSearchStore((state) => state.reset);
   reset();
 
   return (
