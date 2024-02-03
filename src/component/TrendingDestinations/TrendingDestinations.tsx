@@ -30,7 +30,13 @@ const TrendingDestinations = () => {
             ))
           : data?.map((destination, index) => {
               return (
-                <Grid item xs={12} sm={index <= 1 ? 6 : 4} height={"260px"}>
+                <Grid
+                  item
+                  xs={12}
+                  sm={index <= 1 ? 6 : 4}
+                  height={"260px"}
+                  key={index + destination.cityId}
+                >
                   <Destination destination={destination} />
                 </Grid>
               );

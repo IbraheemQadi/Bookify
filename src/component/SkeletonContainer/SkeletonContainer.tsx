@@ -12,8 +12,8 @@ const SectionSkeleton = ({ Children, numberOfSkeletons, direction }: Props) => {
 
   return (
     <Stack direction={direction} spacing={2}>
-      {skeletons.map((skeleton) => (
-        <Children key={skeleton} />
+      {skeletons.map((_, index) => (
+        <Children key={index} />
       ))}
     </Stack>
   );
