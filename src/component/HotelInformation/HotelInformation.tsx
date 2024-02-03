@@ -1,7 +1,10 @@
 import { Hotel } from "@/entities/Hotel";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Stack,
+  Typography
+} from "@mui/material";
 import Amenity from "../common/Amenity";
 
 interface Props {
@@ -10,79 +13,55 @@ interface Props {
 
 function HotelInformation({ hotel }: Props) {
   return (
-    <Stack gap={4}>
-      <Box>
-        <Typography variant="h1" component="h1" mb={0.5}>
-          {hotel.hotelName}
+    <Stack
+      // direction={isMobile ? "column" : "row"}
+      alignItems="start"
+      gap={3}
+    >
+      <Box alignSelf="start">
+        <Box mb={2}>
+          <Typography variant="h5" component="h2" mb={1}>
+            {hotel.hotelName}
+          </Typography>
+          <Typography variant="body1" component="p">
+            {hotel.description}
+          </Typography>
+        </Box>
+        <Divider sx={{ marginBlock: 1 }} />
+        <Typography variant="h5" component="h2" mb={3}>
+          Amenities
         </Typography>
         <Stack
-          color="text.secondary"
           direction="row"
           alignItems="center"
-          gap={1}
+          justifyContent="start"
+          flexWrap={"wrap"}
+          color="text.primary"
+          gap={0.5}
         >
-          <Stack direction="row" alignItems="center" spacing={1}>
-            <LocationOnOutlinedIcon />
-            <Typography variant="body1" component="p">
-              {hotel.location}
-            </Typography>
-          </Stack>
-          <Divider orientation="vertical" flexItem />
-          <Stack direction="row" alignItems="center" spacing={1}>
-            <StarRateRoundedIcon />
-            <Typography variant="body1" component="p">
-              {hotel.starRating}
-            </Typography>
-          </Stack>
+          {hotel.amenities?.map((amenity) => (
+            <Amenity
+              checked={true}
+              size="medium"
+              key={amenity.description}
+              amenity={amenity}
+            />
+          ))}
         </Stack>
       </Box>
-      <Divider />
-
-      <Stack direction="row" alignItems="center" gap={10}>
-        <Box alignSelf="start">
-          <Typography variant="h4" component="h2" mb={3}>
-            Amenities
-          </Typography>
-          <Stack
-            justifySelf="start"
-            direction="row"
-            alignItems="center"
-            spacing={2}
-          >
-            {hotel.amenities?.map((amenity) => (
-              <Amenity
-                checked={true}
-                size="medium"
-                key={amenity.description}
-                amenity={amenity}
-              />
-            ))}
-          </Stack>
-        </Box>
-        <Box>
-          <Typography variant="h4" component="h2" mb={3}>
-            Location on Map
-          </Typography>
-          <Box>
-            <iframe
-              width={"550"}
-              height="250"
-              frameBorder="0"
-              scrolling="no"
-              src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=31.916989,35.206938+(My%20sfasdfasfd)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-            ></iframe>
-          </Box>
-        </Box>
-      </Stack>
-
-      <Divider />
       <Box>
-        <Typography variant="h4" component="h2" mb={3}>
-          Additional Information
+        <Typography variant="h5" component="h2" mb={3}>
+          Location on Map
         </Typography>
-        <Typography variant="body1" component="p" width={"70%"}>
-          {hotel.description}
-        </Typography>
+        <Box>
+          <iframe
+            width="350"
+            height="250"
+            frameBorder="0"
+            scrolling="no"
+            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=31.916989,35.206938+(My%20sfasdfasfd)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+          ></iframe>
+        </Box>
       </Box>
     </Stack>
   );

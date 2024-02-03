@@ -71,7 +71,7 @@ const RoomCard = ({ hotel, room }: Props) => {
   };
 
   return (
-    <Card sx={{ borderRadius: "8px" }} variant="outlined">
+    <Card variant="outlined">
       <StyledBox>
         <CardMedia component="img" height="150" image={room.roomPhotoUrl} />
         <StyledChip
