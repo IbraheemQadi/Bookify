@@ -4,11 +4,11 @@ Welcome to [Bookify](https://ibraheem-bookify.netlify.app), your ultimate destin
 
 ## Links
 
-[📃Documentation]()
+📃[Documentation]()
 
-[🕸 Website](https://ibraheem-bookify.netlify.app)
+🕸[Website](https://ibraheem-bookify.netlify.app)
 
-[🧩Storybook Design System]()
+🧩[Storybook Design System]()
 
 ## Built with
 
@@ -17,22 +17,22 @@ Welcome to [Bookify](https://ibraheem-bookify.netlify.app), your ultimate destin
 
 ## Features
 
-🔓 Token-based authentication.
-👤 User and Admin roles.
-💻 Admin Dashboard for easy management.
-🏨 Easy filtering options and sorting for the search results.
-📱 Fully responsive.
-📐 Loading skeletons for better user experience.
-🟦 TypeScript for type-checking.
-🌕 Full-screen gallery for hotel images.
-🛒 Client side caching using [React Query](https://tanstack.com/query/latest/docs/framework/react/overview).
-🚉 Global State management using [Zustand](https://zustand-demo.pmnd.rs/).
-📄 Form handling using [Formik](https://formik.org/) and [Yup](https://www.npmjs.com/package/yup).
-🏑 React custom hooks for better logic separation.
+🔓 Token-based authentication.  
+👤 User and Admin roles.  
+💻 Admin Dashboard for easy management.  
+🏨 Easy filtering options and sorting for the search results.    
+📱 Fully responsive.  
+📐 Loading skeletons for better user experience.  
+🟦 TypeScript for type-checking.  
+🌕 Full-screen gallery for hotel images.  
+🛒 Client side caching using [React Query](https://tanstack.com/query/latest/docs/framework/react/overview).  
+🚉 Global State management using [Zustand](https://zustand-demo.pmnd.rs/).  
+📄 Form handling using [Formik](https://formik.org/) and [Yup](https://www.npmjs.com/package/yup).  
+🏑 React custom hooks for better logic separation.  
 
 ## Authentication
 
-The application has two types of users: regular users and administrators.
+The application has two types of users: regular users and administrators.  
 Here are the credentials for each type of user:
 
 - **User**
@@ -51,13 +51,13 @@ Please use these credentials to log in to the application.
 Clone the project
 
 ```bash
-  git clone https://github.com/IbraheemQadi/To-do-App.git
+  git clone https://github.com/IbraheemQadi/Bookify
 ```
 
 Go to the project directory
 
 ```bash
-  cd Portfolio
+  cd Bookify
 ```
 
 Install dependencies
