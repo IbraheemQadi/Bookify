@@ -44,7 +44,8 @@ const SearchFilters = () => {
   };
 
   const handleStarRatingChange = (event: Event) => {
-    setStarRating(event?.target?.value);
+    const target = event.target as HTMLInputElement;
+    setStarRating(Number(target.value));
   };
 
   const handleAmenityChange =

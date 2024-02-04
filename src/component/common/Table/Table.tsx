@@ -10,21 +10,30 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 
-interface Props {
-  data: unknown[];
-  headers: string[];
-  onRowClick: (row) => void;
+interface TableRowType {
+  id: number;
 }
 
-const Table = ({ data, headers, onRowClick }: Props) => {
+interface Props<T> {
+  data: T[];
+  headers: string[];
+  onRowClick: (row: T) => void;
+}
+
+export default function Table<T extends TableRowType>({
+  data,
+  headers,
+  onRowClick,
+}: Props<T>) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  9;
   const [selectedRow, setSelectedRow] = useState<number | null>(null);
 
   const isSelectedRow = (id: number) => selectedRow === id;
 
-  const handleRowClick = (row) => {
-    setSelectedRow((state) => (state === row.id ? null : row.id));
+  const handleRowClick = (row: T) => {
+    setSelectedRow((state) => (state === row?.id ? null : row?.id));
     onRowClick(row);
   };
 
@@ -79,6 +88,4 @@ const Table = ({ data, headers, onRowClick }: Props) => {
       />
     </TableContainer>
   );
-};
-
-export default Table;
+}

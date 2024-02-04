@@ -1,10 +1,5 @@
 import { Hotel } from "@/entities/Hotel";
-import {
-  Box,
-  Divider,
-  Stack,
-  Typography
-} from "@mui/material";
+import { Box, Divider, Stack, Typography } from "@mui/material";
 import Amenity from "../common/Amenity";
 
 interface Props {

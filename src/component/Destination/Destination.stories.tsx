@@ -15,6 +15,9 @@ const destination: DestinationType = {
   cityName: "New York",
   thumbnailUrl:
     "https://worldstrides.com/wp-content/uploads/2015/07/iStock_000040849990_Large.jpg",
+  countryName: "United States",
+  description: "The big apple",
+  cityId: 1,
 };
 
 // 340px

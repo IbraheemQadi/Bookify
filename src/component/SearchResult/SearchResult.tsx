@@ -33,11 +33,11 @@ function SearchResult({ searchParams }: Props) {
   useEffect(() => {
     if (hotels?.length !== 0) {
       const lowestPriceHotel = hotels?.reduce((prev, curr) =>
-        prev?.roomPrice < curr?.roomPrice ? prev : curr
+        (prev?.roomPrice ?? 0) < (curr?.roomPrice ?? 0) ? prev : curr
       );
 
       const highestPriceHotel = hotels?.reduce((prev, curr) =>
-        prev?.roomPrice > curr?.roomPrice ? prev : curr
+        (prev?.roomPrice ?? 0) > (curr?.roomPrice ?? 0) ? prev : curr
       );
 
       setPriceRangeMin(lowestPriceHotel?.roomPrice || 0);

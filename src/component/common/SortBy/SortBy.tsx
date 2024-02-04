@@ -20,7 +20,7 @@ type Props = {
 };
 
 const SortBy = ({ options }: Props) => {
-  const { sort, setSort } = useUserSearchStore();
+  const { setSort } = useUserSearchStore();
 
   const handleSortByChange = (event: SelectChangeEvent<{ value: string }>) => {
     setSort(event.target.value as string);
@@ -30,7 +30,6 @@ const SortBy = ({ options }: Props) => {
     <FormControl>
       <Select
         name="sort-by"
-        value={sort}
         onChange={handleSortByChange}
         disableUnderline
         input={

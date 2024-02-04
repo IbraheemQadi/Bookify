@@ -1,37 +1,10 @@
-import { Box, Typography } from "@mui/material";
-import SkeletonContainer from "../SkeletonContainer";
-import HotelCardSkeleton from "../HotelCardSkeleton";
-import Carousel from "react-multi-carousel";
-// import data from "@/data/hotels";
-import HotelCard from "../HotelCard";
+import responsive from "@/data/carouselConfig";
 import useFeaturedDeals from "@/hooks/useFeaturedDeals";
-
-const responsive = {
-  desktop: {
-    breakpoint: {
-      max: 3000,
-      min: 1024,
-    },
-    items: 4,
-    partialVisibilityGutter: 40,
-  },
-  mobile: {
-    breakpoint: {
-      max: 464,
-      min: 0,
-    },
-    items: 1,
-    partialVisibilityGutter: 30,
-  },
-  tablet: {
-    breakpoint: {
-      max: 1024,
-      min: 464,
-    },
-    items: 2,
-    partialVisibilityGutter: 30,
-  },
-};
+import { Box, Typography } from "@mui/material";
+import Carousel from "react-multi-carousel";
+import HotelCard from "../HotelCard";
+import HotelCardSkeleton from "../HotelCardSkeleton";
+import SkeletonContainer from "../SkeletonContainer";
 
 const FeaturedDeals = () => {
   const { data, isLoading } = useFeaturedDeals();
@@ -47,11 +20,9 @@ const FeaturedDeals = () => {
         </Typography>
       </Box>
       {isLoading ? (
-        <SkeletonContainer
-          Children={HotelCardSkeleton}
-          numberOfSkeletons={4}
-          direction="row"
-        />
+        <SkeletonContainer numberOfSkeletons={4} direction="row">
+          <HotelCardSkeleton variant="vertical" />
+        </SkeletonContainer>
       ) : (
         <Carousel
           removeArrowOnDeviceType={["tablet", "mobile"]}

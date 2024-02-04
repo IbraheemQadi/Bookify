@@ -11,10 +11,16 @@ const StyledStack = styled(Stack)({
 interface ControlsProps {
   title: string;
   count: number;
+  disabled?: boolean;
   handleChange: (name: string, count: number) => void;
 }
 
-const Controls = ({ title, count = 0, handleChange }: ControlsProps) => {
+const Controls = ({
+  title,
+  count = 0,
+  handleChange,
+  disabled,
+}: ControlsProps) => {
   return (
     <>
       <Typography variant="h6">{title}</Typography>
@@ -24,7 +30,10 @@ const Controls = ({ title, count = 0, handleChange }: ControlsProps) => {
           ml: 4,
         }}
       >
-        <Button onClick={() => handleChange(title.toLowerCase(), count - 1)}>
+        <Button
+          disabled={disabled}
+          onClick={() => handleChange(title.toLowerCase(), count - 1)}
+        >
           -
         </Button>
         <Typography variant="body1" marginInline={1}>

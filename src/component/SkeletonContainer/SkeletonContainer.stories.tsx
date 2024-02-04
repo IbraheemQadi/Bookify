@@ -14,7 +14,7 @@ const meta: Meta<typeof SkeletonContainer> = {
     numberOfSkeletons: {
       control: "number",
     },
-    Children: {
+    children: {
       control: false,
     },
   },
@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    Children: () => <HotelCardSkeleton />,
+    children: <HotelCardSkeleton variant="vertical" />,
     numberOfSkeletons: 4,
     direction: "row",
   },

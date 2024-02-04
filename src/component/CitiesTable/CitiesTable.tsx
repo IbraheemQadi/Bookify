@@ -32,7 +32,7 @@ function CitiesTable() {
     openDrawerForCreate();
   };
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = () => {
     // const { value } = e.target;
     // filteredCities = filterCities(data ?? [], value);
   };

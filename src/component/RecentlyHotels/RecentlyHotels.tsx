@@ -1,39 +1,12 @@
+import responsive from "@/data/carouselConfig";
+import useRecentlyHotels from "@/hooks/useRecentlyHotels";
+import useAuthStore from "@/store/auth.store";
 import { Box, Typography } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import HotelCard from "../HotelCard/HotelCard";
 import HotelCardSkeleton from "../HotelCardSkeleton";
 import SkeletonContainer from "../SkeletonContainer";
-// import data from "@/data/hotels";
-import useRecentlyHotels from "@/hooks/useRecentlyHotels";
-import useAuthStore from "@/store/auth.store";
-
-const responsive = {
-  desktop: {
-    breakpoint: {
-      max: 3000,
-      min: 1024,
-    },
-    items: 4,
-    partialVisibilityGutter: 40,
-  },
-  mobile: {
-    breakpoint: {
-      max: 464,
-      min: 0,
-    },
-    items: 1,
-    partialVisibilityGutter: 30,
-  },
-  tablet: {
-    breakpoint: {
-      max: 1024,
-      min: 464,
-    },
-    items: 2,
-    partialVisibilityGutter: 30,
-  },
-};
 
 const RecentlyHotels = () => {
   const user = useAuthStore((state) => state.user);
@@ -50,11 +23,9 @@ const RecentlyHotels = () => {
         </Typography>
       </Box>
       {isLoading ? (
-        <SkeletonContainer
-          Children={HotelCardSkeleton}
-          numberOfSkeletons={4}
-          direction="row"
-        />
+        <SkeletonContainer numberOfSkeletons={4} direction="row">
+          <HotelCardSkeleton variant="vertical" />
+        </SkeletonContainer>
       ) : (
         <Carousel
           removeArrowOnDeviceType={["tablet", "mobile"]}

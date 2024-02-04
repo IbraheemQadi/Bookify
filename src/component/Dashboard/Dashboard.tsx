@@ -46,7 +46,13 @@ export default function Dashboard({ children }: { children: React.ReactNode }) {
   );
 }
 
-const AppBar = ({ open, handleDrawerOpen }) => {
+interface Props {
+  open: boolean;
+  handleDrawerOpen?: () => void;
+  handleDrawerClose?: () => void;
+}
+
+const AppBar = ({ open, handleDrawerOpen }: Props) => {
   return (
     <StyledAppBar position="fixed" open={open}>
       <Toolbar>
@@ -70,7 +76,7 @@ const AppBar = ({ open, handleDrawerOpen }) => {
   );
 };
 
-const Drawer = ({ open, handleDrawerClose }) => {
+const Drawer = ({ open, handleDrawerClose }: Props) => {
   const signout = useAuthStore((state) => state.signout);
 
   const theme = useTheme();

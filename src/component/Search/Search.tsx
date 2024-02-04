@@ -60,17 +60,17 @@ StyledMenuItem.defaultProps = {
   disableRipple: true,
 };
 
+const validationSchema = yup.object({
+  checkIn: yup.date().required("Check-in date is required"),
+  checkOut: yup.date().required("Check-out date is required"),
+  adults: yup.number().min(1).required("Adults is required"),
+  children: yup.number().min(0).required("Children is required"),
+  rooms: yup.number().min(1).required("Rooms is required"),
+});
+
 const Search = () => {
   const popupState = usePopupState({ variant: "popover", popupId: "controls" });
   const navigate = useNavigate();
-
-  const validationSchema = yup.object({
-    checkIn: yup.date().required("Check-in date is required"),
-    checkOut: yup.date().required("Check-out date is required"),
-    adults: yup.number().required("Adults is required"),
-    children: yup.number().required("Children is required"),
-    rooms: yup.number().required("Rooms is required"),
-  });
 
   const formik = useFormik({
     initialValues: {
@@ -100,7 +100,7 @@ const Search = () => {
     },
   });
 
-  const handleDateChange = (name: string) => (date) => {
+  const handleDateChange = (name: string) => (date: unknown) => {
     formik.setFieldValue(name, date);
   };
 
@@ -163,6 +163,7 @@ const Search = () => {
                 <Controls
                   title="Adults"
                   count={formik.values.adults}
+                  disabled={formik.values.adults === 1}
                   handleChange={hanldeCountChange}
                 />
               </StyledMenuItem>
@@ -170,6 +171,7 @@ const Search = () => {
                 <Controls
                   title="Children"
                   count={formik.values.children}
+                  disabled={formik.values.children === 0}
                   handleChange={hanldeCountChange}
                 />
               </StyledMenuItem>
@@ -177,6 +179,7 @@ const Search = () => {
                 <Controls
                   title="Rooms"
                   count={formik.values.rooms}
+                  disabled={formik.values.rooms === 1}
                   handleChange={hanldeCountChange}
                 />
               </StyledMenuItem>

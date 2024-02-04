@@ -19,7 +19,7 @@ const StyledBox = styled(Box)({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  backgroundImage: "url(/src/assets/login-small.jpg)",
+  backgroundImage: "url('login-small.jpg')",
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",

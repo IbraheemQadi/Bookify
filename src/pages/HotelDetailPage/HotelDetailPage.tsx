@@ -1,6 +1,6 @@
 import AvailableRoomsGrid from "@/component/AvailableRoomsGrid";
 import HotelGallery from "@/component/HotelGallery";
-import HotelInformation from "@/component/HotelInformation/HotelInformation";
+import HotelInformation from "@/component/HotelInformation";
 import { Hotel } from "@/entities/Hotel";
 import useHotelInformation from "@/hooks/useHotelInformation";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
@@ -16,39 +16,35 @@ import {
 } from "@mui/material";
 import { useParams } from "react-router-dom";
 
-function HotelDetailPage() {
+export default function HotelDetailPage() {
   const { id } = useParams();
   const hotelId = parseInt(id || "");
-  const { data: hotel, isLoading, error } = useHotelInformation(hotelId);
+  const { data: hotel, isLoading } = useHotelInformation(hotelId);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  if (error) {
-    return (
-      <Typography variant="h6">Error loading hotel information</Typography>
-    );
-  }
-
   return (
     <Stack gap={3}>
-      {isLoading ? <PageHeaderSkeleton /> : <PageHeader hotel={hotel} />}
+      {isLoading ? (
+        <PageHeaderSkeleton />
+      ) : (
+        <PageHeader hotel={hotel ?? ({} as Hotel)} />
+      )}
       <HotelGallery hotelId={hotelId} />
       <Divider />
       {isLoading ? (
         <PageBodySkeleton />
       ) : (
         <Stack gap={3} direction={isMobile ? "column" : "row"} mt={2}>
-          <HotelInformation hotel={hotel} />
+          <HotelInformation hotel={hotel ?? ({} as Hotel)} />
           <Box>
-            <AvailableRoomsGrid hotel={hotel} />
+            <AvailableRoomsGrid hotel={hotel ?? ({} as Hotel)} />
           </Box>
         </Stack>
       )}
     </Stack>
   );
 }
-
-export default HotelDetailPage;
 
 function PageHeaderSkeleton() {
   return (
