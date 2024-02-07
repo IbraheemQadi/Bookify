@@ -5,11 +5,12 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 interface CitiesQuery {
   pageSize: number;
   pageNumber: number;
+  name?: string;
 }
 
 const useCities = (query: CitiesQuery) => {
   const citiesService = new APIClient<City[]>(
-    `/cities?pageSize=${query.pageSize}&pageNumber=${query.pageNumber}`
+    `/cities?pageSize=${query.pageSize}&pageNumber=${query.pageNumber}&name=${query.name}`
   );
 
   return useQuery<City[], Error>({

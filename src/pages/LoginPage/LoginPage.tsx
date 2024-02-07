@@ -53,7 +53,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     user?.userType === "Admin"
-      ? navigate("/admin/cities")
+      ? navigate("/admin")
       : user?.userType === "User" && navigate("/user");
   }, [user?.userType, navigate]);
 

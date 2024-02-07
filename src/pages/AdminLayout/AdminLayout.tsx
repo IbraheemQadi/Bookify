@@ -4,6 +4,7 @@ import {
   AdminDrawerProvider,
   useAdminDrawer,
 } from "@/context/AdminDrawerContext";
+import useWelcomeToast from "@/hooks/useWelcomeToast";
 import { Drawer } from "@mui/material";
 import { Outlet, useLocation } from "react-router-dom";
 
@@ -18,10 +19,11 @@ export default function AdminLayout() {
 function AdminLayoutBase() {
   const { pathname } = useLocation();
   const { isOpen, closeDrawer } = useAdminDrawer();
+  useWelcomeToast();
 
   const renderForm = () => {
     switch (pathname) {
-      case "/admin/cities":
+      case "/admin":
         return <CityControlForm />;
       case "/admin/hotels":
         return <div>Hotels Form</div>;
