@@ -155,7 +155,7 @@ const links = [
   {
     title: "Cities",
     icon: <LocationCityIcon />,
-    path: "/admin/cities",
+    path: "/admin",
   },
   {
     title: "Hotels",
