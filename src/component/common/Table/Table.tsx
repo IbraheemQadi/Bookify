@@ -17,17 +17,22 @@ interface TableRowType {
 interface Props<T> {
   data: T[];
   headers: string[];
+  page: number;
+  rowsPerPage: number;
+  setpage: (page: number) => void;
+  setRowsPerPage: (rowsPerPage: number) => void;
   onRowClick: (row: T) => void;
 }
 
 export default function Table<T extends TableRowType>({
   data,
   headers,
+  page,
+  rowsPerPage,
+  setpage: setPage,
+  setRowsPerPage,
   onRowClick,
 }: Props<T>) {
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
-  9;
   const [selectedRow, setSelectedRow] = useState<number | null>(null);
 
   const isSelectedRow = (id: number) => selectedRow === id;
@@ -60,27 +65,25 @@ export default function Table<T extends TableRowType>({
           </TableRow>
         </TableHead>
         <TableBody>
-          {data
-            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            .map((row) => (
-              <TableRow
-                hover
-                key={row.id}
-                sx={{ cursor: "pointer" }}
-                selected={isSelectedRow(row.id)}
-                onClick={() => handleRowClick(row)}
-              >
-                {Object.values(row).map((value) => (
-                  <TableCell key={value}>{value}</TableCell>
-                ))}
-              </TableRow>
-            ))}
+          {data.map((row) => (
+            <TableRow
+              hover
+              key={row.id}
+              sx={{ cursor: "pointer" }}
+              selected={isSelectedRow(row.id)}
+              onClick={() => handleRowClick(row)}
+            >
+              {Object.values(row).map((value) => (
+                <TableCell key={value}>{value}</TableCell>
+              ))}
+            </TableRow>
+          ))}
         </TableBody>
       </MuiTable>
       <TablePagination
         component={"div"}
-        count={data.length}
-        rowsPerPageOptions={[5, 10]}
+        count={-1}
+        rowsPerPageOptions={[3, 5, 10]}
         rowsPerPage={rowsPerPage}
         onRowsPerPageChange={handleChangeRowsPerPage}
         page={page}
