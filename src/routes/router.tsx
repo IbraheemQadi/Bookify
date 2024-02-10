@@ -11,6 +11,7 @@ import { Typography } from "@mui/material";
 import { createBrowserRouter } from "react-router-dom";
 import PrivateRoutes from "./PrivateRoutes";
 import RootRoute from "./RootRoute";
+import ConfirmationPage from "@/pages/ConfirmationPage";
 
 const router = createBrowserRouter([
   { path: "/", element: <RootRoute />, errorElement: <ErrorPage /> },
@@ -52,6 +53,7 @@ const router = createBrowserRouter([
           { path: "search", element: <SearchPage /> },
           { path: "hotel/:id", element: <HotelDetailPage /> },
           { path: "checkout", element: <CheckoutPage /> },
+          { path: "confirmation", element: <ConfirmationPage /> },
         ],
       },
     ],
