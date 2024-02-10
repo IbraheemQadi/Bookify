@@ -1,5 +1,5 @@
 import BookingCard from "@/component/BookingCard";
-import BookingDetail from "@/component/BookingDetail";
+import PaymentForm from "@/component/PaymentForm";
 import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
 
 function CheckoutPage() {
@@ -13,9 +13,7 @@ function CheckoutPage() {
       alignItems={isMobile ? "center" : "start"}
       gap={6}
     >
-      <Box>
-        <BookingDetail />
-      </Box>
+      <PaymentForm />
       <Box
         position={isMobile ? "static" : "sticky"}
         width={isMobile ? "80%" : "fit-content"}
