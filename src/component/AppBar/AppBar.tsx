@@ -15,7 +15,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const pages = [
   { label: "Home", path: "/user" },
@@ -39,6 +39,7 @@ const styles = {
 
 function AppBar() {
   const signout = useAuthStore((state) => state.signout);
+  const location = useLocation();
   const isReserved = useBookingStore((state) => state.isReserved);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -181,7 +182,10 @@ function AppBar() {
                   display: "block",
                   p: 0,
                 }}
-                disabled={!isReserved && page.path === "/user/checkout"}
+                disabled={
+                  (!isReserved || location.pathname === "/user/confirmation") &&
+                  page.path === "/user/checkout"
+                }
               >
                 <StyledLink to={`${page.path.toLowerCase()}`}>
                   {page.label}
