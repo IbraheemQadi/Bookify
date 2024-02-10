@@ -26,7 +26,11 @@ function SearchPage() {
       </Stack>
       {/* alignItems="start" */}
       <Stack direction={isMobile ? "column" : "row"} gap={2}>
-        <Box>
+        <Box
+          position={isMobile ? "static" : "sticky"}
+          width={isMobile ? "80%" : "fit-content"}
+          top={80}
+        >
           <SearchFilters />
         </Box>
         <Box flexGrow={1}>

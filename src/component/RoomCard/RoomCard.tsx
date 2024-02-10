@@ -1,5 +1,10 @@
+import { Hotel } from "@/entities/Hotel";
+import { Room } from "@/entities/Room";
+import useBookingStore from "@/store/booking.store";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChildCareRoundedIcon from "@mui/icons-material/ChildCareRounded";
 import PersonOutlineRoundedIcon from "@mui/icons-material/PersonOutlineRounded";
+import { IconButton } from "@mui/material";
 import Badge from "@mui/material/Badge";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -11,20 +16,14 @@ import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
-import { useLocation } from "react-router-dom";
-import { Hotel } from "@/entities/Hotel";
-import { Room } from "@/entities/Room";
-import useBookingStore from "@/store/booking.store";
+import toast from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
 import Amenity from "../common/Amenity";
 
 interface Props {
   hotel: Hotel;
   room: Room;
 }
-
-const StyledBox = styled(Box)({
-  position: "relative",
-});
 
 const StyledChip = styled(Chip)(() => ({
   position: "absolute",
@@ -39,6 +38,7 @@ const StyledChip = styled(Chip)(() => ({
 
 const RoomCard = ({ hotel, room }: Props) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const {
     booking: { room: bookedRoom },
     isReserved,
@@ -64,6 +64,26 @@ const RoomCard = ({ hotel, room }: Props) => {
       adults: parseInt(adults),
       children: parseInt(children),
     });
+
+    toast.success(
+      (t) => (
+        <Stack direction="row" alignItems="center">
+          <Typography variant="body1" color="text.primary">
+            Finish you booking
+          </Typography>
+          <IconButton
+            onClick={() => {
+              navigate("/user/checkout");
+              toast.dismiss(t.id);
+            }}
+            color="primary"
+          >
+            <ChevronRightIcon />
+          </IconButton>
+        </Stack>
+      ),
+      { position: "top-right", duration: 3000 }
+    );
   };
 
   const handleCancelReservation = () => {
@@ -72,7 +92,7 @@ const RoomCard = ({ hotel, room }: Props) => {
 
   return (
     <Card variant="outlined">
-      <StyledBox>
+      <Box position="relative">
         <CardMedia component="img" height="150" image={room.roomPhotoUrl} />
         <StyledChip
           variant="outlined"
@@ -86,7 +106,7 @@ const RoomCard = ({ hotel, room }: Props) => {
             </Typography>
           }
         />
-      </StyledBox>
+      </Box>
       <CardContent>
         <Typography mb={2} fontWeight={"bold"} variant="h5" component="div">
           {room.roomType}

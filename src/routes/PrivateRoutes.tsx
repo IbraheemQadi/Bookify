@@ -1,3 +1,4 @@
+import useAutoSignout from "@/hooks/useAutoSignout";
 import APIClient from "@/services/apiClient";
 import useAuthStore from "@/store/auth.store";
 import Cookies from "js-cookie";
@@ -11,17 +12,12 @@ interface Props {
 const PrivateRoutes = ({ allowedRoles }: Props) => {
   const { user, signout } = useAuthStore();
   const location = useLocation();
+  useAutoSignout(user?.exp || 0, signout);
 
   useEffect(() => {
     const token = Cookies.get("jwt");
     if (token) APIClient.setAuthorizationHeader(token);
   }, []);
-
-  const currentTime = Date.now() / 1000;
-  if (currentTime > (user?.exp || 0)) {
-    signout();
-    return <Navigate to="/" state={{ from: location }} replace />;
-  }
 
   return (
     <>
