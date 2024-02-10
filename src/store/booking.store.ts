@@ -1,3 +1,4 @@
+import { BookingResponse } from "@/entities/BookingResponse";
 import { Hotel } from "@/entities/Hotel";
 import { Room } from "@/entities/Room";
 import { create } from "zustand";
@@ -10,6 +11,7 @@ interface Booking {
   checkOutDate: string;
   adults: number;
   children: number;
+  bookingDetails?: BookingResponse;
 }
 
 type BookingStore = {
