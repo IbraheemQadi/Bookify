@@ -1,13 +1,26 @@
 import BookingCard from "@/component/BookingCard";
 import BookingDetails from "@/component/BookingDetails";
 import useBookingStore from "@/store/booking.store";
-import { Box, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
-import { useEffect } from "react";
+import {
+  Box,
+  Button,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import { useEffect, useRef } from "react";
+import { useReactToPrint } from "react-to-print";
 
 const ConfirmationPage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const unreserve = useBookingStore((state) => state.unreserve);
+
+  const componentRef = useRef(null);
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
   useEffect(() => {
     return () => {
@@ -24,11 +37,21 @@ const ConfirmationPage = () => {
         <Typography variant="body1" gutterBottom textAlign={"center"}>
           Your reservation has been confirmed. ✅
         </Typography>
+        <Stack direction="row-reverse">
+          <Button
+            onClick={handlePrint}
+            variant="outlined"
+            sx={{ width: "fit-content" }}
+            color="primary"
+          >
+            Print
+          </Button>
+        </Stack>
       </Box>
       <Stack
         direction={isMobile ? "column" : "row"}
         justifyContent={"center"}
-        gap={2}
+        gap={1}
         mt={1}
       >
         <Box
@@ -39,7 +62,9 @@ const ConfirmationPage = () => {
         >
           <BookingCard />
         </Box>
-        <BookingDetails />
+        <Box ref={componentRef} px={1}>
+          <BookingDetails />
+        </Box>
       </Stack>
     </Stack>
   );
