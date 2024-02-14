@@ -1,18 +1,10 @@
-import { Box, Button, Typography, styled } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import {
   isRouteErrorResponse,
   useNavigate,
   useRouteError,
 } from "react-router-dom";
-
-const StyledBox = styled(Box)({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  gap: 15,
-  height: "100vh",
-});
+import { StyledBox } from "./styles";
 
 function ErrorPage() {
   const error = useRouteError();

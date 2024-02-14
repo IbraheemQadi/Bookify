@@ -1,8 +1,8 @@
-import FeaturedDeals from "@/component/FeaturedDeals";
-import RecentlyHotels from "@/component/RecentlyHotels";
 import Search from "@/component/Search";
-import TrendingDestinations from "@/component/TrendingDestinations";
 import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
+import FeaturedDeals from "./components/FeaturedDeals";
+import RecentlyHotels from "./components/RecentlyHotels";
+import TrendingDestinations from "./components/TrendingDestinations";
 
 function HomePage() {
   const theme = useTheme();
