@@ -1,9 +1,9 @@
-import AppBar from "@/component/AppBar";
-import Footer from "@/component/Footer";
-import Hero from "@/component/Hero";
 import useWelcomeToast from "@/hooks/useWelcomeToast";
 import { Container } from "@mui/material";
 import { Outlet, useLocation } from "react-router-dom";
+import AppBar from "./components/AppBar";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
 
 function UserLayout() {
   const { pathname } = useLocation();

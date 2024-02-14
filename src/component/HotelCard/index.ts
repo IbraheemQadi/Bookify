@@ -1,3 +1,1 @@
-import Hotel from "./HotelCard";
-
-export default Hotel;
+export { default } from "./HotelCard";

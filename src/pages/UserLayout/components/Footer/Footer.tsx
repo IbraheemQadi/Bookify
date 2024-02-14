@@ -3,7 +3,6 @@ import { Typography, Link, Box, useTheme } from "@mui/material";
 const styles = {
   footer: {
     padding: "48px",
-    // marginTop: "auto",
   },
 };
 

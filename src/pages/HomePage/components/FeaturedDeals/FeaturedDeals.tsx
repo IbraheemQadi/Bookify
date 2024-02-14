@@ -1,10 +1,10 @@
+import HotelCard from "@/component/HotelCard";
+import HotelCardSkeleton from "@/component/HotelCardSkeleton";
+import SkeletonContainer from "@/component/SkeletonContainer";
 import responsive from "@/data/carouselConfig";
-import useFeaturedDeals from "@/hooks/useFeaturedDeals";
 import { Box, Typography } from "@mui/material";
 import Carousel from "react-multi-carousel";
-import HotelCard from "../HotelCard";
-import HotelCardSkeleton from "../HotelCardSkeleton";
-import SkeletonContainer from "../SkeletonContainer";
+import useFeaturedDeals from "../../hooks/useFeaturedDeals";
 
 const FeaturedDeals = () => {
   const { data, isLoading } = useFeaturedDeals();

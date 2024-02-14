@@ -4,13 +4,7 @@ import SortBy from "@/component/common/SortBy";
 import useUserSearchStore from "@/store/userSearch.store";
 import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
 import { useLocation } from "react-router-dom";
-
-const sortOptions = [
-  { label: "Room Price (lowest fisrt)", value: "RoomPrice" },
-  { label: "Star Rating (low to high)", value: "StarRating" },
-  { label: "Room Price (highest fisrt)", value: "-RoomPrice" },
-  { label: "Star Rating (high to low)", value: "-StarRating" },
-];
+import { sortOptions } from "./sortOptions";
 
 function SearchPage() {
   const { search: searchParams } = useLocation();

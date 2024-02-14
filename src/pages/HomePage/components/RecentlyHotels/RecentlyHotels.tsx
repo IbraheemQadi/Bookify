@@ -1,12 +1,12 @@
 import responsive from "@/data/carouselConfig";
-import useRecentlyHotels from "@/hooks/useRecentlyHotels";
 import useAuthStore from "@/store/auth.store";
 import { Box, Typography } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import HotelCard from "../HotelCard/HotelCard";
-import HotelCardSkeleton from "../HotelCardSkeleton";
-import SkeletonContainer from "../SkeletonContainer";
+import HotelCard from "../../../../component/HotelCard";
+import HotelCardSkeleton from "../../../../component/HotelCardSkeleton";
+import SkeletonContainer from "../../../../component/SkeletonContainer";
+import useRecentlyHotels from "../../hooks/useRecentlyHotels";
 
 const RecentlyHotels = () => {
   const user = useAuthStore((state) => state.user);

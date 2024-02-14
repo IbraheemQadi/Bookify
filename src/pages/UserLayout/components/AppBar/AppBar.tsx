@@ -21,7 +21,7 @@ const pages = [
   { label: "Home", path: "/user" },
   { label: "Checkout", path: "/user/checkout" },
 ];
-const settings = ["Profile", "Account", "Logout"];
+const settings = ["Logout"];
 
 const StyledLink = styled(Link)({
   color: "inherit",
