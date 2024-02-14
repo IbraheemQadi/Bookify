@@ -1,8 +1,8 @@
-import { AuthRequest, AuthResponse } from "@/entities/Auth";
 import APIClient from "@/services/apiClient";
 import useAuthStore from "@/store/auth.store";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import { AuthRequest, AuthResponse } from "../entities/Auth";
 
 const authService = new APIClient<AuthRequest, AuthResponse>(
   "/auth/authenticate"
