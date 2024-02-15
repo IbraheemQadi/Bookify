@@ -1,3 +1,5 @@
+import Amenity from "@/component/common/Amenity";
+import { amenities as shownAmenities } from "@/data/amenities";
 import {
   Box,
   Slider,
@@ -7,9 +9,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { amenities as shownAmenities } from "@/data/amenities";
-import useUserSearchStore from "@/store/userSearch.store";
-import Amenity from "../common/Amenity";
+import useUserSearchStore from "../../store/userSearch.store";
 
 const StyledStack = styled(Stack)({
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
