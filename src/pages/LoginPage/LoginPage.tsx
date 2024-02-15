@@ -63,7 +63,6 @@ const LoginPage = () => {
                 fullWidth
                 name="username"
                 label="Username"
-                type="text"
                 autoFocus
               />
               <FormikTextField

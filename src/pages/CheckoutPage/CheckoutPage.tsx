@@ -1,6 +1,6 @@
 import BookingCard from "@/component/BookingCard";
-import PaymentForm from "@/component/PaymentForm";
 import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
+import PaymentForm from "./components/PaymentForm";
 
 function CheckoutPage() {
   const theme = useTheme();

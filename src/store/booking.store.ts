@@ -1,4 +1,4 @@
-import { BookingResponse } from "@/entities/BookingResponse";
+import { BookingResponse } from "@/pages/CheckoutPage/entities/BookingResponse";
 import { Hotel } from "@/entities/Hotel";
 import { Room } from "@/entities/Room";
 import { create } from "zustand";
