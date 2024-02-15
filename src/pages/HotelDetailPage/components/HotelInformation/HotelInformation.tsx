@@ -1,6 +1,6 @@
+import Amenity from "@/component/common/Amenity";
 import { Hotel } from "@/entities/Hotel";
 import { Box, Divider, Stack, Typography } from "@mui/material";
-import Amenity from "../common/Amenity";
 
 interface Props {
   hotel: Hotel;
@@ -8,11 +8,7 @@ interface Props {
 
 function HotelInformation({ hotel }: Props) {
   return (
-    <Stack
-      // direction={isMobile ? "column" : "row"}
-      alignItems="start"
-      gap={3}
-    >
+    <Stack alignItems="start" gap={3}>
       <Box alignSelf="start">
         <Box mb={2}>
           <Typography variant="h5" component="h2" mb={1}>

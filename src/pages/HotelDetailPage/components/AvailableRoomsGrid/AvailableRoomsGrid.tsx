@@ -1,8 +1,7 @@
-import { Grid, Paper } from "@mui/material";
-
 import { Hotel } from "@/entities/Hotel";
-import useAvailableRooms from "@/hooks/useAvailableRooms";
+import { Grid, Paper } from "@mui/material";
 import { useLocation, useParams } from "react-router-dom";
+import useAvailableRooms from "../../hooks/useAvailableRooms";
 import RoomCard from "../RoomCard";
 
 interface Props {
