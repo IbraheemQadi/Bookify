@@ -4,6 +4,7 @@ import DetailItem from "./DetailItem";
 
 function BookingDetails() {
   const { bookingDetails } = useBookingStore((state) => state.booking);
+
   return (
     <Paper variant="outlined" sx={{ p: 3 }}>
       <Typography variant="h5" gutterBottom>

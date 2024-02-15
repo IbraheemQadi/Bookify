@@ -3,29 +3,12 @@ import StarIcon from "@mui/icons-material/Star";
 import {
   Box,
   Divider,
-  Paper,
   Stack,
   Typography,
-  styled,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-
-const StyledImg = styled("img")({
-  objectFit: "cover",
-  borderRadius: "5px",
-  width: "100%",
-  height: "100%",
-});
-
-const StyledPaper = styled(Paper)({
-  display: "flex",
-  flexDirection: "column",
-  gap: 15,
-  padding: "20px",
-  borderRadius: "15px",
-  boxShadow: "0px 6px 16px 0px rgba(0, 0, 0, 0.12)",
-});
+import { StyledImg, StyledPaper } from "./styles";
 
 function BookingCard() {
   const { hotel, room } = useBookingStore((state) => state.booking);
@@ -75,9 +58,7 @@ function BookingCard() {
           </Stack>
         </Box>
       </Stack>
-
       <Divider />
-
       <Stack>
         <Typography variant="h6" fontWeight="bold">
           Price Details
@@ -87,9 +68,7 @@ function BookingCard() {
           <Typography variant="body1">${room.price}</Typography>
         </Stack>
       </Stack>
-
       <Divider />
-
       <Stack direction="row" justifyContent="space-between">
         <Typography fontWeight="bold" variant="body1">
           Total (USD)
