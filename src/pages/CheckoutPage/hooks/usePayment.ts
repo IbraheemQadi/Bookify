@@ -1,9 +1,9 @@
-import { BookingResponse } from "@/entities/BookingResponse";
 import APIClient from "@/services/apiClient";
 import useBookingStore from "@/store/booking.store";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { BookingResponse } from "../entities/BookingResponse";
 
 const paymentService = new APIClient<unknown, BookingResponse>("/bookings");
 
