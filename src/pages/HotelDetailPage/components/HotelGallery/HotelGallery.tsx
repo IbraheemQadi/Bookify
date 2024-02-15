@@ -5,7 +5,7 @@ import "lightgallery/css/lightgallery.css";
 import lgAutoPlay from "lightgallery/plugins/autoplay";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import LightGallery from "lightgallery/react";
-import useGallery from "@/hooks/useGallery";
+import useGallery from "../../hooks/useGallery";
 import GalleryItem from "./GalleryItem";
 import "./styles.css";
 

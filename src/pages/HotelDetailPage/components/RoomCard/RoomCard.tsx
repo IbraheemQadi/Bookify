@@ -1,3 +1,4 @@
+import Amenity from "@/component/common/Amenity";
 import { Hotel } from "@/entities/Hotel";
 import { Room } from "@/entities/Room";
 import useBookingStore from "@/store/booking.store";
@@ -18,7 +19,6 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
-import Amenity from "../common/Amenity";
 
 interface Props {
   hotel: Hotel;
