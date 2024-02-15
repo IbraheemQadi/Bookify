@@ -1,10 +1,10 @@
-import useSearch from "@/hooks/useSearch";
-import useUserSearchStore from "@/store/userSearch.store";
+import Hotel from "@/component/HotelCard";
+import HotelCardSkeleton from "@/component/HotelCardSkeleton";
 import getFilteredHotels from "@/utils/getFilteredHotels";
 import { Stack } from "@mui/material";
 import { useEffect } from "react";
-import Hotel from "../HotelCard";
-import HotelCardSkeleton from "../HotelCardSkeleton";
+import useSearch from "../../hooks/useSearch";
+import useUserSearchStore from "../../store/userSearch.store";
 
 interface Props {
   searchParams: string;

@@ -1,9 +1,9 @@
-import SearchFilters from "@/component/SearchFilters";
-import SearchResult from "@/component/SearchResult";
-import SortBy from "@/component/common/SortBy";
-import useUserSearchStore from "@/store/userSearch.store";
+import useUserSearchStore from "@/pages/SearchPage/store/userSearch.store";
 import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
 import { useLocation } from "react-router-dom";
+import SearchFilters from "./components/SearchFilters";
+import SearchResult from "./components/SearchResult";
+import SortBy from "./components/SortBy";
 import { sortOptions } from "./sortOptions";
 
 function SearchPage() {
@@ -12,13 +12,12 @@ function SearchPage() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   reset();
-  // position="sticky" top={25} ( search filters ) for Desktop view
+
   return (
     <Stack>
       <Stack direction="row-reverse" mb={1}>
         <SortBy options={sortOptions} />
       </Stack>
-      {/* alignItems="start" */}
       <Stack direction={isMobile ? "column" : "row"} gap={2}>
         <Box
           position={isMobile ? "static" : "sticky"}

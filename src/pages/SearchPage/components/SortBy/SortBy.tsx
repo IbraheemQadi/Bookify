@@ -8,7 +8,7 @@ import {
   SelectChangeEvent,
   Typography,
 } from "@mui/material";
-import useUserSearchStore from "@/store/userSearch.store";
+import useUserSearchStore from "../../store/userSearch.store";
 
 interface Option {
   label: string;
