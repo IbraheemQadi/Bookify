@@ -1,5 +1,4 @@
 import BookingCard from "@/component/BookingCard";
-import BookingDetails from "@/component/BookingDetails";
 import useBookingStore from "@/store/booking.store";
 import {
   Box,
@@ -11,6 +10,7 @@ import {
 } from "@mui/material";
 import { useEffect, useRef } from "react";
 import { useReactToPrint } from "react-to-print";
+import BookingDetails from "./components/BookingDetails";
 
 const ConfirmationPage = () => {
   const theme = useTheme();
