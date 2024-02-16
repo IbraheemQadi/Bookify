@@ -1,12 +1,9 @@
-import CityControlForm from "@/component/CityControlForm";
-import Dashboard from "@/component/Dashboard";
-import {
-  AdminDrawerProvider,
-  useAdminDrawer,
-} from "@/context/AdminDrawerContext";
 import useWelcomeToast from "@/hooks/useWelcomeToast";
 import { Drawer } from "@mui/material";
 import { Outlet, useLocation } from "react-router-dom";
+import CityControlForm from "../CitiesDashboard/components/CityControlForm";
+import Dashboard from "./components/Dashboard";
+import { AdminDrawerProvider, useAdminDrawer } from "./context/AdminDrawerContext";
 
 export default function AdminLayout() {
   return (

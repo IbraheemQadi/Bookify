@@ -1,7 +1,7 @@
-import AdminSearchBar from "@/component/AdminSearchBar";
-import CitiesTable from "@/component/CitiesTable";
 import useDebounce from "@/hooks/useDebounce";
+import AdminSearchBar from "@/pages/AdminLayout/components/AdminSearchBar";
 import { useState } from "react";
+import CitiesTable from "./components/CitiesTable";
 
 export default function CitiesDashboard() {
   const [searchInput, setSearchInput] = useState("");

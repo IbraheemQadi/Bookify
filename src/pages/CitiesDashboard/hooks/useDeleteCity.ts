@@ -1,27 +1,32 @@
-import { useAdminDrawer } from "@/context/AdminDrawerContext";
+import { useAdminDrawer } from "@/pages/AdminLayout/context/AdminDrawerContext";
 import { City } from "@/entities/City";
 import APIClient from "@/services/apiClient";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
-const useCreateCity = () => {
+const useDeleteCity = (cityId: number) => {
   const queryClient = useQueryClient();
-  const updateCityService = new APIClient<City>("cities");
   const { closeDrawer } = useAdminDrawer();
+  const updateCityService = new APIClient<City>(`/cities/${cityId}`);
 
   return useMutation({
-    mutationFn: updateCityService.post,
-    onSuccess: (savedCity) => {
+    mutationFn: updateCityService.delete,
+    onSuccess: (_, deletedCity: City) => {
       //   queryClient.invalidateQueries({ queryKey: ["cities"] });
       queryClient
         .getQueryCache()
         .findAll({ queryKey: ["cities"] })
         .forEach((query) => {
           queryClient.setQueryData(query.queryKey, (oldCities: City[]) => {
-            return [...oldCities, savedCity];
+            return oldCities.filter((city) => {
+              if (city.id === deletedCity.id) {
+                return false;
+              }
+              return true;
+            });
           });
         });
-      toast.success("City created successfully");
+      toast.success("City deleted successfully");
       closeDrawer();
     },
     onError: (error) => {
@@ -30,4 +35,4 @@ const useCreateCity = () => {
   });
 };
 
-export default useCreateCity;
+export default useDeleteCity;
