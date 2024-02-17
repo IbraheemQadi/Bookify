@@ -19,7 +19,7 @@ const LoginPage = () => {
     password: "",
   };
 
-  const handleSubmit = (values: { username: string; password: string }) => {
+  const handleSubmit = (values: typeof initialValues) => {
     const { username, password } = values;
     auth.mutate({ username, password });
   };

@@ -1,4 +1,4 @@
-import Search from "@/component/Search";
+import Search from "@/pages/HomePage/components/Search";
 import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
 import FeaturedDeals from "./components/FeaturedDeals";
 import RecentlyHotels from "./components/RecentlyHotels";

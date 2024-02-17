@@ -1,6 +1,6 @@
 import HotelCard from "@/component/HotelCard";
 import HotelCardSkeleton from "@/component/HotelCardSkeleton";
-import SkeletonContainer from "@/component/SkeletonContainer";
+import SkeletonContainer from "@/pages/HomePage/components/SkeletonContainer";
 import responsive from "@/data/carouselConfig";
 import { Box, Typography } from "@mui/material";
 import Carousel from "react-multi-carousel";
