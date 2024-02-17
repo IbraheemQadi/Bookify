@@ -1,4 +1,4 @@
-import Amenity from "@/component/common/Amenity";
+import Amenity from "@/components/Amenity";
 import { Hotel } from "@/entities/Hotel";
 import { Room } from "@/entities/Room";
 import useBookingStore from "@/store/booking.store";

@@ -1,4 +1,4 @@
-import FormikTextField from "@/component/common/FormikTextField";
+import FormikTextField from "@/components/FormikTextField";
 import useAuthStore from "@/store/auth.store";
 import { Box, Button, Container, Typography, useTheme } from "@mui/material";
 import { Form, Formik } from "formik";
@@ -19,7 +19,7 @@ const LoginPage = () => {
     password: "",
   };
 
-  const handleSubmit = (values: { username: string; password: string }) => {
+  const handleSubmit = (values: typeof initialValues) => {
     const { username, password } = values;
     auth.mutate({ username, password });
   };

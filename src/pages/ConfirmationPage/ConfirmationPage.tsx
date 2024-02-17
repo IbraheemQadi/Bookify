@@ -1,4 +1,4 @@
-import BookingCard from "@/component/BookingCard";
+import BookingCard from "@/components/BookingCard";
 import useBookingStore from "@/store/booking.store";
 import {
   Box,

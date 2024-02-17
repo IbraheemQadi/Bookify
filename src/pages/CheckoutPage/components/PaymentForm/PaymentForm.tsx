@@ -1,4 +1,4 @@
-import FormikTextField from "@/component/common/FormikTextField";
+import FormikTextField from "@/components/FormikTextField";
 import useAuthStore from "@/store/auth.store";
 import useBookingStore from "@/store/booking.store";
 import { Button, Divider, Stack, Typography } from "@mui/material";

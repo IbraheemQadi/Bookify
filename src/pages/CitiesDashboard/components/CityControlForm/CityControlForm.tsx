@@ -1,4 +1,4 @@
-import FormikTextField from "@/component/common/FormikTextField";
+import FormikTextField from "@/components/FormikTextField";
 import { City } from "@/entities/City";
 import { useAdminDrawer } from "@/pages/AdminLayout/context/AdminDrawerContext";
 import { Box, Button, Divider, Stack, Typography } from "@mui/material";

@@ -1,4 +1,4 @@
-import Amenity from "@/component/common/Amenity";
+import Amenity from "@/components/Amenity";
 import { Hotel } from "@/entities/Hotel";
 import { Box, Divider, Stack, Typography } from "@mui/material";
 

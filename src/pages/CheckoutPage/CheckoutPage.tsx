@@ -1,4 +1,4 @@
-import BookingCard from "@/component/BookingCard";
+import BookingCard from "@/components/BookingCard";
 import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
 import PaymentForm from "./components/PaymentForm";
 
