@@ -1,5 +1,5 @@
-import Hotel from "@/component/HotelCard";
-import HotelCardSkeleton from "@/component/HotelCardSkeleton";
+import Hotel from "@/components/HotelCard";
+import HotelCardSkeleton from "@/components/HotelCardSkeleton";
 import getFilteredHotels from "@/utils/getFilteredHotels";
 import { Stack } from "@mui/material";
 import { useEffect } from "react";

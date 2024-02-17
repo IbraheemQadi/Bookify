@@ -1,5 +1,5 @@
-import HotelCard from "@/component/HotelCard";
-import HotelCardSkeleton from "@/component/HotelCardSkeleton";
+import HotelCard from "@/components/HotelCard";
+import HotelCardSkeleton from "@/components/HotelCardSkeleton";
 import SkeletonContainer from "@/pages/HomePage/components/SkeletonContainer";
 import responsive from "@/data/carouselConfig";
 import { Box, Typography } from "@mui/material";

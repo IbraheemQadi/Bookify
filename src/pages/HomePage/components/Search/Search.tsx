@@ -1,4 +1,4 @@
-import FormikTextField from "@/component/common/FormikTextField";
+import FormikTextField from "@/components/FormikTextField";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import SingleBedIcon from "@mui/icons-material/SingleBed";
 import { Stack } from "@mui/material";

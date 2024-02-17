@@ -3,8 +3,8 @@ import useAuthStore from "@/store/auth.store";
 import { Box, Typography } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import HotelCard from "@/component/HotelCard";
-import HotelCardSkeleton from "@/component/HotelCardSkeleton";
+import HotelCard from "@/components/HotelCard";
+import HotelCardSkeleton from "@/components/HotelCardSkeleton";
 import SkeletonContainer from "../SkeletonContainer";
 import useRecentlyHotels from "../../hooks/useRecentlyHotels";
 

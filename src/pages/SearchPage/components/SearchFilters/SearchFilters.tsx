@@ -1,4 +1,4 @@
-import Amenity from "@/component/common/Amenity";
+import Amenity from "@/components/Amenity";
 import { amenities as shownAmenities } from "@/data/amenities";
 import {
   Box,

@@ -1,4 +1,4 @@
-import Table from "@/component/common/Table";
+import Table from "@/components/Table";
 import { useAdminDrawer } from "@/pages/AdminLayout/context/AdminDrawerContext";
 import { sortCities } from "@/utils/cityUtils";
 import { Box } from "@mui/material";
