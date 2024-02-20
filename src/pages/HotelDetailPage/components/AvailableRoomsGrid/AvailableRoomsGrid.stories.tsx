@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import { rest } from "msw";
 import { reactRouterParameters } from "storybook-addon-react-router-v6";
 import AvailableRoomsGrid from "./AvailableRoomsGrid";
-import { availableRooms } from "@/data/availableRooms";
+import availableRooms from "../../data/availableRooms.json";
 
 export default {
   title: "Section/AvailableRoomsGrid",

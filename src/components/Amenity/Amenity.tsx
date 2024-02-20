@@ -1,3 +1,4 @@
+import { Amenity as AmenityType } from "@/entities/Amenity";
 import {
   ButtonBase,
   Checkbox,
@@ -7,8 +8,7 @@ import {
   styled,
 } from "@mui/material";
 import Fade from "@mui/material/Fade";
-import { Amenity as AmenityType } from "@/entities/Amenity";
-import { getAmenityIcon } from "@/utils/getAmenityIcon";
+import { getAmenityIcon } from "./getAmenityIcon";
 
 const StyledFormControlLabel = styled(FormControlLabel)({
   border: "1px solid #e0e0e0",

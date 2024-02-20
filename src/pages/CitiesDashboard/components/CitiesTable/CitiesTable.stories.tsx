@@ -1,4 +1,4 @@
-import cities from "@/data/cities.json";
+import cities from "../../data/cities.json";
 import { Meta } from "@storybook/react";
 import { rest } from "msw";
 import CitiesTable from "./CitiesTable";

@@ -1,9 +1,9 @@
 import HotelCard from "@/components/HotelCard";
 import HotelCardSkeleton from "@/components/HotelCardSkeleton";
 import SkeletonContainer from "@/pages/HomePage/components/SkeletonContainer";
-import responsive from "@/data/carouselConfig";
 import { Box, Typography } from "@mui/material";
 import Carousel from "react-multi-carousel";
+import responsive from "../../data/carouselConfig";
 import useFeaturedDeals from "../../hooks/useFeaturedDeals";
 
 const FeaturedDeals = () => {

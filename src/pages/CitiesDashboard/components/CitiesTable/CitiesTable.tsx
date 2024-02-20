@@ -1,9 +1,9 @@
 import Table from "@/components/Table";
 import { useAdminDrawer } from "@/pages/AdminLayout/context/AdminDrawerContext";
-import { sortCities } from "@/utils/cityUtils";
 import { Box } from "@mui/material";
 import { memo, useState } from "react";
 import useCities from "../../hooks/useCities";
+import { sortCities } from "../../utils/cityUtils";
 
 interface Props {
   searchQuery: string;
