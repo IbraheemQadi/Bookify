@@ -1,5 +1,5 @@
 import Amenity from "@/components/Amenity";
-import { amenities as shownAmenities } from "@/data/amenities";
+import { amenities as shownAmenities } from "../../data/amenities";
 import {
   Box,
   Slider,

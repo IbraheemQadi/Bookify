@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import SearchFilters from "./components/SearchFilters";
 import SearchResult from "./components/SearchResult";
 import SortBy from "./components/SortBy";
-import { sortOptions } from "./sortOptions";
+import { sortOptions } from "./data/sortOptions";
 
 function SearchPage() {
   const { search: searchParams } = useLocation();

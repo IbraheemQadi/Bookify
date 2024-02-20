@@ -1,6 +1,6 @@
-import { gallery } from "@/data/hotelGallery";
 import { Meta } from "@storybook/react";
 import { rest } from "msw";
+import { gallery } from "../../data/hotelGallery";
 import HotelGallery from "./HotelGallery";
 
 export default {

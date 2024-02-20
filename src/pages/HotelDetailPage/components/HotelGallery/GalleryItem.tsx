@@ -1,5 +1,5 @@
 import { Chip, styled } from "@mui/material";
-import { GalleryPhoto } from "@/entities/GalleryPhoto";
+import { GalleryPhoto } from "../../entities/GalleryPhoto";
 
 const StyledChip = styled(Chip)(() => ({
   position: "absolute",
