@@ -11,7 +11,7 @@ const useAutoSignout = (expTime: number, signout: () => void) => {
       }, remainingTime * 1000);
 
       return () => clearTimeout(logoutTimer);
-    }
+    } else signout();
   }, [expTime, signout]);
 };
 
