@@ -18,8 +18,8 @@ function PageHeader({ hotel }: { hotel: Hotel }) {
           </Typography>
         </Stack>
         <Stack direction="row" alignItems="center" spacing={0}>
-          <StarRateRoundedIcon />
-          <Typography variant="body1" component="p">
+          <StarRateRoundedIcon color="secondary" />
+          <Typography variant="body1" component="p" color="secondary">
             {hotel?.starRating}
           </Typography>
         </Stack>

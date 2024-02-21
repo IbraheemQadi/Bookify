@@ -1,9 +1,8 @@
 import useAuthStore from "@/store/auth.store";
 import useBookingStore from "@/store/booking.store";
-import AdbIcon from "@mui/icons-material/Adb";
 import DoorbellOutlinedIcon from "@mui/icons-material/DoorbellOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
-import { AppBar as MuiAppBar, styled, useTheme } from "@mui/material";
+import { AppBar as MuiAppBar, useTheme } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -15,27 +14,15 @@ import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { StyledLink, styles } from "./styles";
 
 const pages = [
   { label: "Home", path: "/user" },
   { label: "Checkout", path: "/user/checkout" },
 ];
+
 const settings = ["Logout"];
-
-const StyledLink = styled(Link)({
-  color: "inherit",
-  textDecoration: "none",
-  padding: "6px 8px",
-  position: "relative",
-});
-
-const styles = {
-  appbar: {
-    color: "black",
-    boxShadow: "none",
-  },
-};
 
 function AppBar() {
   const signout = useAuthStore((state) => state.signout);
@@ -78,7 +65,13 @@ function AppBar() {
     >
       <Container maxWidth="xl">
         <Toolbar>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <Typography
+            variant="h5"
+            component="span"
+            sx={{ display: { xs: "none", md: "flex" }, mr: 0.5 }}
+          >
+            🏨
+          </Typography>
           <Typography
             variant="h6"
             noWrap
@@ -148,12 +141,17 @@ function AppBar() {
           </Box>
 
           {/* User Logo */}
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <Typography
+            variant="h5"
+            component="span"
+            sx={{ display: { xs: "flex", md: "none" }, mr: 0.5 }}
+          >
+            🏨
+          </Typography>
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },

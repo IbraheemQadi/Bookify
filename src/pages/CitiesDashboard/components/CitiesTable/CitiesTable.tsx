@@ -1,7 +1,8 @@
 import Table from "@/components/Table";
+import usePagination from "@/hooks/usePagination";
 import { useAdminDrawer } from "@/pages/AdminLayout/context/AdminDrawerContext";
 import { Box } from "@mui/material";
-import { memo, useState } from "react";
+import { memo } from "react";
 import useCities from "../../hooks/useCities";
 import { sortCities } from "../../utils/cityUtils";
 
@@ -10,10 +11,15 @@ interface Props {
 }
 
 const CitiesTable = memo(({ searchQuery }: Props) => {
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const {
+    currentPage,
+    rowsPerPage,
+    handlePageChange,
+    handleRowsPerPageChange,
+  } = usePagination(5);
+
   const { data, isLoading } = useCities({
-    pageNumber: page + 1,
+    pageNumber: currentPage + 1,
     pageSize: rowsPerPage,
     name: searchQuery,
   });
@@ -27,10 +33,10 @@ const CitiesTable = memo(({ searchQuery }: Props) => {
         data={sortCities(data ?? [])}
         headers={["Id", "Name", "Description"]}
         onRowClick={(row) => openDrawer(row)}
-        page={page}
+        page={currentPage}
         rowsPerPage={rowsPerPage}
-        setpage={setPage}
-        setRowsPerPage={setRowsPerPage}
+        setpage={handlePageChange}
+        setRowsPerPage={handleRowsPerPageChange}
       />
     </Box>
   );

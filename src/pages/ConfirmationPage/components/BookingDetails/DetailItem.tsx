@@ -1,10 +1,5 @@
-import { Divider, Stack, Typography, styled } from "@mui/material";
-
-const StyledStack = styled(Stack)({
-  paddingInline: "20px",
-  paddingBlock: "10px",
-  gap: "40px",
-});
+import { Divider, Typography } from "@mui/material";
+import { StyledStack } from "./styles";
 
 interface Props {
   label: string;

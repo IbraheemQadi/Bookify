@@ -1,5 +1,4 @@
 import Amenity from "@/components/Amenity";
-import { amenities as shownAmenities } from "../../data/amenities";
 import {
   Box,
   Slider,
@@ -9,6 +8,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import { amenities as shownAmenities } from "../../data/amenities";
 import useUserSearchStore from "../../store/userSearch.store";
 
 const StyledStack = styled(Stack)({
