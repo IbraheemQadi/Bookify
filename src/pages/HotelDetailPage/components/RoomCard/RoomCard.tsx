@@ -12,29 +12,17 @@ import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Chip from "@mui/material/Chip";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { styled } from "@mui/material/styles";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
+import { StyledChip } from "./styles";
 
 interface Props {
   hotel: Hotel;
   room: Room;
 }
-
-const StyledChip = styled(Chip)(() => ({
-  position: "absolute",
-  bottom: 10,
-  left: 10,
-  borderColor: "white",
-  backgroundColor: "#fff",
-  fontWeight: "bold",
-  fontSize: "1.2rem",
-  padding: "5px",
-}));
 
 const RoomCard = ({ hotel, room }: Props) => {
   const location = useLocation();
@@ -98,9 +86,9 @@ const RoomCard = ({ hotel, room }: Props) => {
           variant="outlined"
           size="medium"
           label={
-            <Typography fontWeight={"bold"} variant="body1">
-              ${room.price}
-              <Typography variant="body2" component="span">
+            <Typography color="primary" fontWeight="bold" variant="body1">
+              {room.price}
+              <Typography component={"span"} color="text.secondary">
                 /night
               </Typography>
             </Typography>
@@ -139,7 +127,7 @@ const RoomCard = ({ hotel, room }: Props) => {
           direction="row"
           alignItems="center"
           justifyContent="start"
-          flexWrap={"wrap"}
+          flexWrap="wrap"
           color="text.primary"
           gap={0.5}
         >

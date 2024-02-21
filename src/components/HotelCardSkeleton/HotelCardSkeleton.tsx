@@ -1,8 +1,4 @@
-import { Box, Paper, Skeleton, Stack, styled } from "@mui/material";
-
-const StyledPaper = styled(Paper)({
-  padding: "10px",
-});
+import { Box, Paper, Skeleton, Stack } from "@mui/material";
 
 interface Props {
   variant: "horizontal" | "vertical";
@@ -11,7 +7,7 @@ interface Props {
 const HotelCardSkeleton = ({ variant }: Props) => {
   if (variant === "horizontal")
     return (
-      <StyledPaper square={false} variant="outlined">
+      <Paper square={false} variant="outlined" sx={{ p: "10px" }}>
         <Stack direction="row" gap={2}>
           <Box>
             <Skeleton variant="rounded" width={200} height={200} />
@@ -37,7 +33,7 @@ const HotelCardSkeleton = ({ variant }: Props) => {
             </Stack>
           </Stack>
         </Stack>
-      </StyledPaper>
+      </Paper>
     );
   else
     return (

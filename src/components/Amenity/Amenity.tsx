@@ -1,21 +1,8 @@
 import { Amenity as AmenityType } from "@/entities/Amenity";
-import {
-  ButtonBase,
-  Checkbox,
-  FormControlLabel,
-  Tooltip,
-  Typography,
-  styled,
-} from "@mui/material";
+import { ButtonBase, Checkbox, Tooltip, Typography } from "@mui/material";
 import Fade from "@mui/material/Fade";
 import { getAmenityIcon } from "./getAmenityIcon";
-
-const StyledFormControlLabel = styled(FormControlLabel)({
-  border: "1px solid #e0e0e0",
-  borderRadius: "5px",
-  margin: "0",
-  paddingRight: "15px",
-});
+import { StyledFormControlLabel } from "./styles";
 
 interface Props {
   amenity: AmenityType;

@@ -1,12 +1,5 @@
-import { Button, Stack, Typography, styled } from "@mui/material";
-
-const StyledStack = styled(Stack)({
-  backgroundColor: "#fff",
-  justifyContent: "center",
-  alignItems: "center",
-  flexDirection: "row",
-  borderRadius: "5px",
-});
+import { Button, Typography } from "@mui/material";
+import { StyledStack } from "./styles";
 
 interface ControlsProps {
   title: string;
@@ -24,12 +17,7 @@ const Controls = ({
   return (
     <>
       <Typography variant="h6">{title}</Typography>
-      <StyledStack
-        sx={{
-          border: "1px gray solid ",
-          ml: 4,
-        }}
-      >
+      <StyledStack>
         <Button
           disabled={disabled}
           onClick={() => handleChange(title.toLowerCase(), count - 1)}
