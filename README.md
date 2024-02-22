@@ -4,7 +4,7 @@ Welcome to [Bookify](https://ibraheem-bookify.netlify.app), your ultimate destin
 
 ## Links
 
-📃[Documentation]()
+📃[Documentation](https://pepper-vest-a04.notion.site/Bookify-Documentation-cc2178cf065449e4adb09cb2304c63d6?pvs=25)
 
 🕸[Website](https://ibraheem-bookify.netlify.app)
 
