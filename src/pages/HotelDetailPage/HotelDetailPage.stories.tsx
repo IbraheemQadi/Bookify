@@ -2,7 +2,7 @@ import { Story, Meta } from "@storybook/react";
 import HotelDetailPage from "./HotelDetailPage";
 
 export default {
-  title: "Pages/HotelDetailPage",
+  title: "Pages/Hotel Detail Page",
   component: HotelDetailPage,
 } as Meta;
 

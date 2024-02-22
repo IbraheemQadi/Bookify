@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import FeaturedDeals from "./FeaturedDeals";
 
 const meta: Meta<typeof FeaturedDeals> = {
-  title: "Section/FeaturedDeals",
+  title: "Pages/Home Page/FeaturedDeals",
   component: FeaturedDeals,
   tags: ["autodocs"],
 };

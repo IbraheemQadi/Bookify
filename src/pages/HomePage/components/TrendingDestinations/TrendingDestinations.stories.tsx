@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import TrendingDestinations from "./TrendingDestinations";
 
 export default {
-  title: "Section/TrendingDestinations",
+  title: "Pages/Home Page/TrendingDestinations",
   component: TrendingDestinations,
   tags: ["autodocs"],
 } as Meta;

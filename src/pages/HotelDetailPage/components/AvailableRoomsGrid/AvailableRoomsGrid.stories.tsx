@@ -5,7 +5,7 @@ import AvailableRoomsGrid from "./AvailableRoomsGrid";
 import availableRooms from "../../data/availableRooms.json";
 
 export default {
-  title: "Section/AvailableRoomsGrid",
+  title: "Pages/Hotel Detail Page/AvailableRoomsGrid",
   component: AvailableRoomsGrid,
   parameters: {
     reactRouter: reactRouterParameters({

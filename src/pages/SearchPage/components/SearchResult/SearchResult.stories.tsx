@@ -3,7 +3,7 @@ import hotels from "../../data/hotels";
 import SearchResult from "./SearchResult";
 
 export default {
-  title: "Section/SearchResult",
+  title: "Pages/Search Page/SearchResult",
   component: SearchResult,
   tags: ["autodocs"],
 } as Meta;

@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import RoomCard from "./RoomCard";
 
 export default {
-  title: "Components/RoomCard",
+  title: "Pages/Hotel Detail Page/RoomCard",
   component: RoomCard,
   tags: ["autodocs"],
 } as Meta;

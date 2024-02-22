@@ -4,7 +4,7 @@ import { rest } from "msw";
 import CitiesTable from "./CitiesTable";
 
 export default {
-  title: "Section/Cities",
+  title: "Pages/Cities Dashboard/Cities",
   component: CitiesTable,
   parameters: {
     msw: {

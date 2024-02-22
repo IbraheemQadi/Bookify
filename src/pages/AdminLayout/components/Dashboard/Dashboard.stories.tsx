@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import Dashboard from "./Dashboard";
 
 export default {
-  title: "Components/Dashboard",
+  title: "Pages/Admin/Dashboard",
   component: Dashboard,
 } as Meta;
 
