@@ -1,6 +1,7 @@
 import { Hotel as HotelType } from "@/entities/Hotel";
 import StarIcon from "@mui/icons-material/Star";
 import { Card, CardContent, CardMedia, Stack, Typography } from "@mui/material";
+import renderHotelPrice from "../utils/renderHotelPrice";
 
 const HotelCardVertical = ({ hotel }: { hotel: HotelType }) => {
   return (
@@ -36,13 +37,7 @@ const HotelCardVertical = ({ hotel }: { hotel: HotelType }) => {
           variant="body2"
           sx={{ mt: 3, textAlign: "end", fontWeight: "bold" }}
         >
-          Price:
-          {hotel.finalPrice ? (
-            <del>${hotel.originalRoomPrice}</del>
-          ) : (
-            `$${hotel.originalRoomPrice}`
-          )}
-          {hotel.finalPrice && ` $${hotel.finalPrice}`}
+          {renderHotelPrice(hotel)}
         </Typography>
       </CardContent>
     </Card>
