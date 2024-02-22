@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import Search from "./Search";
 
 export default {
-  title: "Section/Search",
+  title: "Pages/Home Page/Search",
   component: Search,
 } as Meta;
 

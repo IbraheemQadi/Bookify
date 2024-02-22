@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import Controls from "./Controls";
 
 export default {
-  title: "Components/Controls",
+  title: "Pages/Home Page/Controls",
   component: Controls,
 } as Meta;
 

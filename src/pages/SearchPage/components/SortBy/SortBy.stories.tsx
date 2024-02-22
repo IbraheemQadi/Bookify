@@ -2,7 +2,7 @@ import { Meta } from "@storybook/react";
 import SortBy from "./SortBy";
 
 export default {
-  title: "Components/SortBy",
+  title: "Pages/Search Page/SortBy",
   component: SortBy,
   tags: ["autodocs"],
 } as Meta;

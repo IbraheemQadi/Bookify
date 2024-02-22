@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import AppBar from "./AppBar";
 
 export default {
-  title: "Section/AppBar",
+  title: "Pages/User Layout/AppBar",
   component: AppBar,
 } as Meta;
 

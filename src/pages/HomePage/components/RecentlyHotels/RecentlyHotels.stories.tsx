@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import RecentlyHotels from "./RecentlyHotels";
 
 const meta: Meta<typeof RecentlyHotels> = {
-  title: "Section/RecentlyHotels",
+  title: "Pages/Home Page/RecentlyHotels",
   component: RecentlyHotels,
   tags: ["autodocs"],
 };

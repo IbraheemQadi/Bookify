@@ -3,7 +3,7 @@ import HotelCardSkeleton from "@/components/HotelCardSkeleton";
 import SkeletonContainer from "./SkeletonContainer";
 
 const meta: Meta<typeof SkeletonContainer> = {
-  title: "Components/SkeletonContainer",
+  title: "Pages/Home Page/SkeletonContainer",
   component: SkeletonContainer,
   tags: ["autodocs"],
   argTypes: {

@@ -3,7 +3,7 @@ import Destination from "./index";
 import { Destination as DestinationType } from "@/pages/HomePage/entities/Destination";
 
 const meta = {
-  title: "Components/Destination",
+  title: "Pages/Home Page/Destination",
   component: Destination,
   tags: ["autodocs"],
 } as Meta<typeof Destination>;

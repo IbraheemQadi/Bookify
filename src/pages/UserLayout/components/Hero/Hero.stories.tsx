@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import Hero from "./Hero";
 
 export default {
-  title: "Section/Hero",
+  title: "Pages/User Layout/Hero",
   component: Hero,
 } as Meta;
 

@@ -4,7 +4,7 @@ import { gallery } from "../../data/hotelGallery";
 import HotelGallery from "./HotelGallery";
 
 export default {
-  title: "Section/HotelGallery",
+  title: "Pages/Hotel Detail Page/HotelGallery",
   component: HotelGallery,
   parameters: {
     msw: {
